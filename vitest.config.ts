@@ -37,10 +37,10 @@ export default defineConfig({
         'app/projects/[slug]/page.tsx'
       ],
       thresholds: {
-        lines: 92,
-        functions: 78,
-        branches: 78,
-        statements: 92
+        lines: 97,
+        functions: 80,
+        branches: 93,
+        statements: 100
       }
     }
   }

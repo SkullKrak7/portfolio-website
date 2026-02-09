@@ -86,4 +86,10 @@ describe('Projects Page', () => {
     const cards = screen.getAllByText(/view details/i);
     expect(cards.length).toBe(10);
   });
+
+  it('renders all filter buttons', () => {
+    render(<ProjectsPage />);
+    const buttons = screen.getAllByRole('button');
+    expect(buttons.length).toBeGreaterThanOrEqual(9);
+  });
 });

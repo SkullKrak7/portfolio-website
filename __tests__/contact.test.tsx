@@ -161,6 +161,41 @@ describe('Contact Page', () => {
     }, { timeout: 2000 });
   });
 
+  it('closes toast when onClose is called', async () => {
+    render(<ContactPage />);
+    
+    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
+    fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'Message' } });
+    
+    const form = screen.getByRole('button', { name: /send message/i }).closest('form');
+    fireEvent.submit(form!);
+    
+    await waitFor(() => {
+      expect(screen.getByText('Message sent successfully!')).toBeInTheDocument();
+    }, { timeout: 2000 });
+    
+    // Wait for toast auto-close
+    await waitFor(() => {
+      expect(screen.queryByText('Message sent successfully!')).not.toBeInTheDocument();
+    }, { timeout: 4000 });
+  });
+
+  it('shows error message when submission fails', async () => {
+    render(<ContactPage />);
+    
+    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'error@test.com' } });
+    fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'Message' } });
+    
+    const form = screen.getByRole('button', { name: /send message/i }).closest('form');
+    fireEvent.submit(form!);
+    
+    await waitFor(() => {
+      expect(screen.getByText('Failed to send message. Please try again.')).toBeInTheDocument();
+    }, { timeout: 2000 });
+  });
+
   it('has proper form structure', () => {
     render(<ContactPage />);
     const form = screen.getByRole('button', { name: /send message/i }).closest('form');
