@@ -4,8 +4,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Your Name - Portfolio',
-  description: 'Software Engineer & ML Specialist',
+  title: 'Sai Karthik Kagolanu - ML Engineer',
+  description: 'MSc Robotics graduate specializing in Machine Learning, Computer Vision, and NLP. Two-time hackathon winner with production-grade systems.',
 }
 
 export default function RootLayout({

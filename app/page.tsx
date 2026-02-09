@@ -3,13 +3,13 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20">
-        <h1 className="text-5xl font-bold mb-4">Your Name</h1>
+        <h1 className="text-5xl font-bold mb-4">Sai Karthik Kagolanu</h1>
         <p className="text-2xl text-gray-600 mb-6">
-          Software Engineer & ML Specialist
+          ML Engineer & Robotics Graduate
         </p>
         <p className="text-xl text-gray-500 max-w-2xl mb-8">
-          I build production-grade systems and understand every decision - 
-          not just what works, but why it works and what the tradeoffs are.
+          MSc Robotics graduate specializing in Machine Learning, Computer Vision, and NLP systems. 
+          Two-time hackathon winner with production-grade ML systems and 96% test coverage.
         </p>
         <div className="flex gap-4">
           <a 
