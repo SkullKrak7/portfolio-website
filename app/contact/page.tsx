@@ -10,7 +10,8 @@ export const submitContactForm = async (data: { name: unknown; email: unknown; m
   return { success: true };
 };
 
-export default function ContactPage({ 
+// Separate component for testing
+export function ContactForm({ 
   onSubmit = submitContactForm 
 }: { 
   onSubmit?: typeof submitContactForm 
@@ -165,4 +166,9 @@ export default function ContactPage({
       {showToast && <Toast message={toastMessage} type={toastType} onClose={() => setShowToast(false)} />}
     </main>
   )
+}
+
+// Page component (no props allowed in Next.js App Router)
+export default function ContactPage() {
+  return <ContactForm />;
 }

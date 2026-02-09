@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import ContactPage from '@/app/contact/page';
+import ContactPage, { ContactForm } from '@/app/contact/page';
 
 describe('Contact Page', () => {
   beforeEach(() => {
@@ -14,26 +14,26 @@ describe('Contact Page', () => {
   });
 
   it('renders page title', () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     expect(screen.getByText('Get in Touch')).toBeInTheDocument();
   });
 
   it('displays contact form', () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
   });
 
   it('displays email and LinkedIn cards', () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     expect(screen.getByText('Email')).toBeInTheDocument();
     expect(screen.getByText('LinkedIn')).toBeInTheDocument();
     expect(screen.getByText('sai.kagolanu@yahoo.com')).toBeInTheDocument();
   });
 
   it('validates fields on submission', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     const submitButton = screen.getByRole('button', { name: /send message/i });
     
     fireEvent.click(submitButton);
@@ -44,7 +44,7 @@ describe('Contact Page', () => {
   });
 
   it('copies email to clipboard', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     const copyButtons = screen.getAllByRole('button');
     const copyButton = copyButtons.find(btn => btn.getAttribute('title') === 'Copy email');
     
@@ -57,7 +57,7 @@ describe('Contact Page', () => {
   });
 
   it('handles form submission with valid data', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     
     const nameInput = screen.getByLabelText(/name/i);
     const emailInput = screen.getByLabelText(/email/i);
@@ -76,7 +76,7 @@ describe('Contact Page', () => {
   });
 
   it('shows error for empty name', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     
     const emailInput = screen.getByLabelText(/email/i);
     const messageInput = screen.getByLabelText(/message/i);
@@ -91,7 +91,7 @@ describe('Contact Page', () => {
   });
 
   it('shows error for empty email', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     
     const nameInput = screen.getByLabelText(/name/i);
     const messageInput = screen.getByLabelText(/message/i);
@@ -106,7 +106,7 @@ describe('Contact Page', () => {
   });
 
   it('shows error for empty message', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     
     const nameInput = screen.getByLabelText(/name/i);
     const emailInput = screen.getByLabelText(/email/i);
@@ -121,7 +121,7 @@ describe('Contact Page', () => {
   });
 
   it('shows error for empty form submission', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     const submitButton = screen.getByRole('button', { name: /send message/i });
     
     fireEvent.click(submitButton);
@@ -132,7 +132,7 @@ describe('Contact Page', () => {
   });
 
   it('submits form with all fields filled', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'john@example.com' } });
@@ -147,7 +147,7 @@ describe('Contact Page', () => {
   });
 
   it('shows success message after form submission', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
     fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
@@ -162,7 +162,7 @@ describe('Contact Page', () => {
   });
 
   it('closes toast when onClose is called', async () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
     fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
@@ -184,7 +184,7 @@ describe('Contact Page', () => {
   it('shows error message when API call fails', async () => {
     const mockSubmit = vi.fn().mockRejectedValue(new Error('API Error'));
     
-    render(<ContactPage onSubmit={mockSubmit} />);
+    render(<ContactForm onSubmit={mockSubmit} />);
     
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
     fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
@@ -205,22 +205,27 @@ describe('Contact Page', () => {
   });
 
   it('has proper form structure', () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     const form = screen.getByRole('button', { name: /send message/i }).closest('form');
     expect(form).toBeInTheDocument();
   });
 
   it('displays submit button', () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     const submitButton = screen.getByRole('button', { name: /send message/i });
     expect(submitButton).toBeInTheDocument();
     expect(submitButton).not.toBeDisabled();
   });
 
   it('has external links with proper attributes', () => {
-    render(<ContactPage />);
+    render(<ContactForm />);
     const linkedinLink = screen.getByRole('link', { name: /linkedin\.com/i });
     expect(linkedinLink).toHaveAttribute('target', '_blank');
     expect(linkedinLink).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
+  it('renders ContactPage wrapper', () => {
+    render(<ContactPage />);
+    expect(screen.getByText('Get in Touch')).toBeInTheDocument();
   });
 });
