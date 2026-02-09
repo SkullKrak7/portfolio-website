@@ -54,4 +54,37 @@ describe('Home Page', () => {
     expect(screen.getByText('2x')).toBeInTheDocument();
     expect(screen.getByText('Hackathon Winner')).toBeInTheDocument();
   });
+
+  it('has skip to main content link', () => {
+    render(<Home />);
+    const skipLink = screen.getByText(/skip to main content/i);
+    expect(skipLink).toBeInTheDocument();
+    expect(skipLink.closest('a')).toHaveAttribute('href', '#main-content');
+  });
+
+  it('featured projects have learn more links', () => {
+    render(<Home />);
+    const learnMoreLinks = screen.getAllByText(/learn more/i);
+    expect(learnMoreLinks.length).toBe(3);
+  });
+
+  it('CV download link has correct attributes', () => {
+    render(<Home />);
+    const cvLink = screen.getByRole('link', { name: /download cv/i });
+    expect(cvLink).toHaveAttribute('href', '/resume.pdf');
+    expect(cvLink).toHaveAttribute('download');
+  });
+
+  it('projects link navigates correctly', () => {
+    render(<Home />);
+    const projectsLink = screen.getByRole('link', { name: /view projects/i });
+    expect(projectsLink).toHaveAttribute('href', '/projects');
+  });
+
+  it('displays project tags', () => {
+    render(<Home />);
+    expect(screen.getByText('96% Coverage')).toBeInTheDocument();
+    expect(screen.getByText('Winner')).toBeInTheDocument();
+    expect(screen.getByText('Gemini')).toBeInTheDocument();
+  });
 });

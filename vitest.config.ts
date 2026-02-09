@@ -33,13 +33,14 @@ export default defineConfig({
         '**/*.config.*',
         'app/layout.tsx',
         'app/not-found.tsx',
-        'app/loading.tsx'
+        'app/loading.tsx',
+        'app/projects/[slug]/page.tsx'
       ],
       thresholds: {
-        lines: 55,
-        functions: 51,
-        branches: 51,
-        statements: 51
+        lines: 67,
+        functions: 68,
+        branches: 72,
+        statements: 67
       }
     }
   }
