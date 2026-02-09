@@ -26,7 +26,6 @@ describe('Projects Page', () => {
     
     fireEvent.click(mlFilter);
     
-    // Filter button should be active
     expect(mlFilter).toBeInTheDocument();
   });
 
@@ -40,7 +39,6 @@ describe('Projects Page', () => {
 
   it('shows project cards', () => {
     render(<ProjectsPage />);
-    // Should have multiple project cards
     const viewDetailsLinks = screen.getAllByText(/view details/i);
     expect(viewDetailsLinks.length).toBeGreaterThan(0);
   });
@@ -49,5 +47,43 @@ describe('Projects Page', () => {
     render(<ProjectsPage />);
     const main = screen.getByRole('main');
     expect(main).toBeInTheDocument();
+  });
+
+  it('filters by Python', () => {
+    render(<ProjectsPage />);
+    const pythonFilter = screen.getByRole('button', { name: /^python/i });
+    
+    fireEvent.click(pythonFilter);
+    
+    const cards = screen.getAllByText(/view details/i);
+    expect(cards.length).toBeGreaterThan(0);
+  });
+
+  it('filters by C++', () => {
+    render(<ProjectsPage />);
+    const cppFilter = screen.getByRole('button', { name: /c\+\+/i });
+    
+    fireEvent.click(cppFilter);
+    
+    expect(cppFilter).toBeInTheDocument();
+  });
+
+  it('filters by React', () => {
+    render(<ProjectsPage />);
+    const reactFilter = screen.getByRole('button', { name: /react/i });
+    
+    fireEvent.click(reactFilter);
+    
+    expect(reactFilter).toBeInTheDocument();
+  });
+
+  it('shows all projects when All filter clicked', () => {
+    render(<ProjectsPage />);
+    const allFilter = screen.getByRole('button', { name: /^all/i });
+    
+    fireEvent.click(allFilter);
+    
+    const cards = screen.getAllByText(/view details/i);
+    expect(cards.length).toBe(10);
   });
 });

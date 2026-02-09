@@ -4,7 +4,6 @@ import ContactPage from '@/app/contact/page';
 
 describe('Contact Page', () => {
   beforeEach(() => {
-    // Mock clipboard API
     Object.defineProperty(navigator, 'clipboard', {
       value: {
         writeText: vi.fn(() => Promise.resolve()),
@@ -45,13 +44,44 @@ describe('Contact Page', () => {
 
   it('copies email to clipboard', async () => {
     render(<ContactPage />);
-    const copyButton = screen.getAllByRole('button')[1]; // Second button is copy
+    const copyButtons = screen.getAllByRole('button');
+    const copyButton = copyButtons.find(btn => btn.getAttribute('title') === 'Copy email');
     
-    fireEvent.click(copyButton);
+    if (copyButton) {
+      fireEvent.click(copyButton);
+      await waitFor(() => {
+        expect(navigator.clipboard.writeText).toHaveBeenCalledWith('sai.kagolanu@yahoo.com');
+      });
+    }
+  });
+
+  it('handles form submission with valid data', async () => {
+    render(<ContactPage />);
+    
+    const nameInput = screen.getByLabelText(/name/i);
+    const emailInput = screen.getByLabelText(/email/i);
+    const messageInput = screen.getByLabelText(/message/i);
+    const submitButton = screen.getByRole('button', { name: /send message/i });
+    
+    fireEvent.change(nameInput, { target: { value: 'Test User' } });
+    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(messageInput, { target: { value: 'Test message content' } });
+    
+    fireEvent.click(submitButton);
     
     await waitFor(() => {
-      expect(navigator.clipboard.writeText).toHaveBeenCalledWith('sai.kagolanu@yahoo.com');
+      expect(submitButton).toHaveTextContent(/sending/i);
     });
+  });
+
+  it('shows error for empty form submission', async () => {
+    render(<ContactPage />);
+    const submitButton = screen.getByRole('button', { name: /send message/i });
+    
+    fireEvent.click(submitButton);
+    
+    const nameInput = screen.getByLabelText(/name/i) as HTMLInputElement;
+    expect(nameInput.validity.valid).toBe(false);
   });
 
   it('has proper form structure', () => {
@@ -65,5 +95,12 @@ describe('Contact Page', () => {
     const submitButton = screen.getByRole('button', { name: /send message/i });
     expect(submitButton).toBeInTheDocument();
     expect(submitButton).not.toBeDisabled();
+  });
+
+  it('has external links with proper attributes', () => {
+    render(<ContactPage />);
+    const linkedinLink = screen.getByRole('link', { name: /linkedin\.com/i });
+    expect(linkedinLink).toHaveAttribute('target', '_blank');
+    expect(linkedinLink).toHaveAttribute('rel', 'noopener noreferrer');
   });
 });

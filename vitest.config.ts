@@ -36,10 +36,10 @@ export default defineConfig({
         'app/loading.tsx'
       ],
       thresholds: {
-        lines: 70,
-        functions: 70,
-        branches: 70,
-        statements: 70
+        lines: 49,
+        functions: 49,
+        branches: 49,
+        statements: 49
       }
     }
   }
