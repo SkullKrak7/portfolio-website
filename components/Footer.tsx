@@ -10,10 +10,8 @@ export default function Footer() {
             href="https://github.com/SkullKrak7" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-sm transition-colors"
+            className="text-sm transition-colors hover:text-[var(--accent)]"
             style={{ color: 'var(--text-secondary)' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
           >
             GitHub
           </a>
@@ -21,19 +19,15 @@ export default function Footer() {
             href="https://linkedin.com/in/karthik-kagolanu" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-sm transition-colors"
+            className="text-sm transition-colors hover:text-[var(--accent)]"
             style={{ color: 'var(--text-secondary)' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
           >
             LinkedIn
           </a>
           <a 
             href="mailto:sai.kagolanu@yahoo.com" 
-            className="text-sm transition-colors"
+            className="text-sm transition-colors hover:text-[var(--accent)]"
             style={{ color: 'var(--text-secondary)' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
           >
             Email
           </a>
