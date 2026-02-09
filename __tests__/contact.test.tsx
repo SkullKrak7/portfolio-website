@@ -181,6 +181,29 @@ describe('Contact Page', () => {
     }, { timeout: 4000 });
   });
 
+  it('shows error message when API call fails', async () => {
+    const mockSubmit = vi.fn().mockRejectedValue(new Error('API Error'));
+    
+    render(<ContactPage onSubmit={mockSubmit} />);
+    
+    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
+    fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'Message' } });
+    
+    const form = screen.getByRole('button', { name: /send message/i }).closest('form');
+    fireEvent.submit(form!);
+    
+    await waitFor(() => {
+      expect(screen.getByText('Failed to send message. Please try again.')).toBeInTheDocument();
+    });
+    
+    expect(mockSubmit).toHaveBeenCalledWith({
+      name: 'Test',
+      email: 'test@test.com',
+      message: 'Message'
+    });
+  });
+
   it('has proper form structure', () => {
     render(<ContactPage />);
     const form = screen.getByRole('button', { name: /send message/i }).closest('form');

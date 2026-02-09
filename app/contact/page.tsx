@@ -2,7 +2,19 @@
 import { useState } from 'react'
 import Toast from '@/components/Toast'
 
-export default function ContactPage() {
+// API service that can be mocked in tests
+export const submitContactForm = async (data: { name: unknown; email: unknown; message: unknown }) => {
+  // In production, this would be a real API call
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  console.log('Form data:', data);
+  return { success: true };
+};
+
+export default function ContactPage({ 
+  onSubmit = submitContactForm 
+}: { 
+  onSubmit?: typeof submitContactForm 
+} = {}) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [copied, setCopied] = useState(false)
   const [showToast, setShowToast] = useState(false)
@@ -38,23 +50,18 @@ export default function ContactPage() {
     }
 
     try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Form data:', data)
+      await onSubmit(data);
       setStatus('success')
       setToastMessage('Message sent successfully!')
       setToastType('success')
       setShowToast(true)
       ;(e.target as HTMLFormElement).reset()
-    } 
-    /* c8 ignore start */
-    catch (error) {
+    } catch (error) {
       setStatus('error')
       setToastMessage('Failed to send message. Please try again.')
       setToastType('error')
       setShowToast(true)
     }
-    /* c8 ignore stop */
   }
 
   return (
