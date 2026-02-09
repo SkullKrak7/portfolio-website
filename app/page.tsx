@@ -1,82 +1,140 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <>
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg"
+      >
+        Skip to main content
+      </a>
+      <main id="main-content" className="min-h-screen" style={{ background: 'var(--bg-page)' }}>
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20">
-        <h1 className="text-5xl font-bold mb-4">Sai Karthik Kagolanu</h1>
-        <p className="text-2xl text-gray-600 mb-6">
-          ML Engineer & Robotics Graduate
-        </p>
-        <p className="text-xl text-gray-500 max-w-2xl mb-8">
-          MSc Robotics graduate specializing in Machine Learning, Computer Vision, and NLP systems. 
-          Two-time hackathon winner with production-grade ML systems (6,500+ LOC, 96% test coverage).
-        </p>
-        <div className="flex gap-4">
-          <a 
-            href="/projects" 
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-          >
-            View Projects
-          </a>
-          <a 
-            href="/about" 
-            className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100"
-          >
-            About Me
-          </a>
+      <section className="container mx-auto px-4 py-12 md:py-20">
+        <div className="max-w-4xl">
+          <div className="inline-block px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>
+            🚀 Available for opportunities
+          </div>
+          <h1 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            Sai Karthik Kagolanu
+          </h1>
+          <p className="text-xl md:text-2xl font-semibold mb-3 md:mb-4" style={{ color: 'var(--text-secondary)' }}>
+            ML Engineer & Robotics Graduate
+          </p>
+          <p className="text-base md:text-lg max-w-3xl mb-6 md:mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            MSc Robotics graduate specializing in Machine Learning, Computer Vision, and NLP systems. 
+            Two-time hackathon winner with production-grade ML systems (17K+ LOC, 95%+ portfolio accuracy).
+          </p>
+          <div className="flex gap-2 md:gap-3 flex-wrap">
+            <a 
+              href="/projects" 
+              className="px-4 py-2 md:px-6 md:py-3 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all text-sm md:text-base"
+              style={{ background: 'var(--accent)' }}
+            >
+              View Projects →
+            </a>
+            <a 
+              href="/resume.pdf" 
+              download
+              className="px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition-all text-sm md:text-base"
+              style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="container mx-auto px-4 py-8 md:py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
+          <div className="p-3 md:p-4 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-2xl md:text-3xl font-bold mb-1" style={{ color: 'var(--accent)' }}>10</div>
+            <div className="text-xs md:text-sm" style={{ color: 'var(--text-muted)' }}>Projects</div>
+          </div>
+          <div className="p-3 md:p-4 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-2xl md:text-3xl font-bold mb-1" style={{ color: '#22c55e' }}>17K+</div>
+            <div className="text-xs md:text-sm" style={{ color: 'var(--text-muted)' }}>Lines of Code</div>
+          </div>
+          <div className="p-3 md:p-4 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-2xl md:text-3xl font-bold mb-1" style={{ color: '#a855f7' }}>95%+</div>
+            <div className="text-xs md:text-sm" style={{ color: 'var(--text-muted)' }}>Test Coverage</div>
+          </div>
+          <div className="p-3 md:p-4 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-2xl md:text-3xl font-bold mb-1" style={{ color: '#f97316' }}>2x</div>
+            <div className="text-xs md:text-sm" style={{ color: 'var(--text-muted)' }}>Hackathon Winner</div>
+          </div>
         </div>
       </section>
 
       {/* Featured Projects */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8">Featured Projects</h2>
-        <div className="grid md:grid-cols-3 gap-6">
+      <section className="container mx-auto px-4 py-12 md:py-16">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center" style={{ color: 'var(--text-primary)' }}>Featured Projects</h2>
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
           {/* RAG_Demo */}
-          <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-            <h3 className="text-xl font-bold mb-2">RAG_Demo</h3>
-            <p className="text-gray-600 mb-4">
-              Production-grade RAG with 96% test coverage
-            </p>
-            <div className="flex gap-2 mb-4">
-              <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Python</span>
-              <span className="px-2 py-1 bg-green-100 text-green-800 rounded text-sm">96% Coverage</span>
+          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all" style={{ 
+            background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
+            border: '1px solid var(--border-subtle)'
+          }}>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="text-xl">🤖</div>
+              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>RAG Demo</h3>
             </div>
-            <a href="/projects/rag-demo" className="text-blue-600 hover:underline">
+            <p className="mb-3 text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>
+              Production-grade RAG with 96% test coverage, hybrid retrieval, and conversation memory
+            </p>
+            <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Python</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'rgba(34, 197, 94, 0.12)', color: 'var(--accent-success)' }}>96% Coverage</span>
+            </div>
+            <a href="/projects/rag-demo" className="text-xs md:text-sm font-medium hover:underline" style={{ color: 'var(--accent)' }}>
               Learn more →
             </a>
           </div>
 
           {/* CV Suite */}
-          <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-            <h3 className="text-xl font-bold mb-2">Computer Vision Suite</h3>
-            <p className="text-gray-600 mb-4">
-              Multi-language ML system (Python/C++/JS)
-            </p>
-            <div className="flex gap-2 mb-4">
-              <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Python</span>
-              <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-sm">C++</span>
+          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all" style={{ 
+            background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
+            border: '1px solid var(--border-subtle)'
+          }}>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="text-xl">👁️</div>
+              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>CV Suite</h3>
             </div>
-            <a href="/projects/cv-suite" className="text-blue-600 hover:underline">
+            <p className="mb-3 text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>
+              Multi-language ML system with Python, C++, and JavaScript - 5,200 LOC
+            </p>
+            <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Python</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'rgba(168, 85, 247, 0.12)', color: '#a855f7' }}>C++</span>
+            </div>
+            <a href="/projects/cv-suite" className="text-xs md:text-sm font-medium hover:underline" style={{ color: 'var(--accent)' }}>
               Learn more →
             </a>
           </div>
 
-          {/* Zaxia */}
-          <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-            <h3 className="text-xl font-bold mb-2">Zaxia Backend</h3>
-            <p className="text-gray-600 mb-4">
-              Multi-tenant SaaS with event-driven architecture
-            </p>
-            <div className="flex gap-2 mb-4">
-              <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">FastAPI</span>
-              <span className="px-2 py-1 bg-red-100 text-red-800 rounded text-sm">CQRS</span>
+          {/* Retail Odyssey */}
+          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all" style={{ 
+            background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
+            border: '1px solid var(--border-subtle)'
+          }}>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="text-xl">🏆</div>
+              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Retail Odyssey</h3>
             </div>
-            <a href="/projects/zaxia-backend" className="text-blue-600 hover:underline">
+            <p className="mb-3 text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>
+              HackSheffield10 Winner - 5-agent AI system built in 24 hours
+            </p>
+            <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'rgba(234, 179, 8, 0.12)', color: 'var(--accent-warning)' }}>Winner</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Gemini</span>
+            </div>
+            <a href="/projects/retail-odyssey" className="text-xs md:text-sm font-medium hover:underline" style={{ color: 'var(--accent)' }}>
               Learn more →
             </a>
           </div>
         </div>
       </section>
     </main>
+    </>
   )
 }

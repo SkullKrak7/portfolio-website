@@ -1,33 +1,58 @@
+'use client'
+import { useState } from 'react'
 import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/lib/projects';
 
 export default function ProjectsPage() {
-  const categories = ['All', 'ML', 'Backend', 'Full-Stack', 'Hackathon'];
+  const [filter, setFilter] = useState('All')
+  
+  const filters = ['All', 'ML/AI', 'Computer Vision', 'NLP', 'Full-Stack', 'Hackathon', 'Python', 'C++', 'React']
+  
+  const filtered = filter === 'All' 
+    ? projects 
+    : projects.filter(p => {
+        if (filter === 'ML/AI') return p.category === 'ML' || p.tags.some(t => t.includes('XGBoost') || t.includes('CNN') || t.includes('LSTM'))
+        if (filter === 'Computer Vision') return p.tags.some(t => t.includes('PyTorch') || t.includes('TensorFlow') || t.includes('CNN')) || p.title.includes('Vision')
+        if (filter === 'NLP') return p.tags.some(t => t.includes('LangChain') || t.includes('Gemini')) || p.title.includes('RAG')
+        if (filter === 'Full-Stack') return p.category === 'Full-Stack' || p.tags.some(t => t.includes('React') || t.includes('Flask') || t.includes('FastAPI'))
+        if (filter === 'Hackathon') return p.category === 'Hackathon' || p.tags.includes('🏆 Winner')
+        return p.tags.some(t => t.includes(filter))
+      })
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen" style={{ background: 'var(--bg-page)' }}>
       <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold mb-4">All Projects</h1>
-        <p className="text-xl text-gray-600 mb-8">
-          {projects.length} projects showcasing ML, backend systems, and full-stack development
+        <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>All Projects</h1>
+        <p className="text-xl mb-8" style={{ color: 'var(--text-secondary)' }}>
+          {projects.length} projects showcasing ML, computer vision, NLP, and full-stack development
         </p>
 
-        {/* Category Filter - Static for now */}
-        <div className="flex gap-3 mb-8 overflow-x-auto">
-          {categories.map(cat => (
+        <div className="flex gap-3 mb-8 overflow-x-auto pb-2">
+          {filters.map(tag => (
             <button
-              key={cat}
-              className="px-4 py-2 rounded-lg bg-white border border-gray-300 hover:bg-gray-100 whitespace-nowrap"
+              key={tag}
+              onClick={() => setFilter(tag)}
+              className="px-4 py-2 rounded-lg whitespace-nowrap transition-colors"
+              style={filter === tag 
+                ? { background: 'var(--accent)', color: 'var(--bg-page)' }
+                : { background: 'var(--bg-elevated)', color: 'var(--text-secondary)', border: '1px solid var(--border-subtle)' }
+              }
             >
-              {cat}
+              {tag} {tag === 'All' ? `(${projects.length})` : `(${projects.filter(p => {
+                if (tag === 'ML/AI') return p.category === 'ML' || p.tags.some(t => t.includes('XGBoost') || t.includes('CNN') || t.includes('LSTM'))
+                if (tag === 'Computer Vision') return p.tags.some(t => t.includes('PyTorch') || t.includes('TensorFlow') || t.includes('CNN')) || p.title.includes('Vision')
+                if (tag === 'NLP') return p.tags.some(t => t.includes('LangChain') || t.includes('Gemini')) || p.title.includes('RAG')
+                if (tag === 'Full-Stack') return p.category === 'Full-Stack' || p.tags.some(t => t.includes('React') || t.includes('Flask') || t.includes('FastAPI'))
+                if (tag === 'Hackathon') return p.category === 'Hackathon' || p.tags.includes('🏆 Winner')
+                return p.tags.some(t => t.includes(tag))
+              }).length})`}
             </button>
           ))}
         </div>
 
-        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map(project => (
-            <ProjectCard
+          {filtered.map((project) => (
+            <ProjectCard 
               key={project.slug}
               title={project.title}
               description={project.description}
@@ -40,5 +65,5 @@ export default function ProjectsPage() {
         </div>
       </div>
     </main>
-  );
+  )
 }

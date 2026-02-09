@@ -33,3 +33,6 @@ coverage/
 # Misc
 *.log
 .vercel
+
+*storybook.log
+storybook-static

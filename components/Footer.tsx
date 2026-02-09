@@ -1,14 +1,19 @@
+'use client'
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-8 mt-auto">
+    <footer className="py-8 mt-auto" style={{ background: 'var(--bg-elevated)', borderTop: '1px solid var(--border-subtle)' }}>
       <div className="container mx-auto px-4 text-center">
-        <p className="mb-2">© 2026 Sai Karthik Kagolanu. All rights reserved.</p>
+        <p className="mb-2 text-sm" style={{ color: 'var(--text-muted)' }}>© 2026 Sai Karthik Kagolanu. All rights reserved.</p>
         <div className="flex justify-center gap-6">
           <a 
             href="https://github.com/SkullKrak7" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="hover:text-gray-300"
+            className="text-sm transition-colors"
+            style={{ color: 'var(--text-secondary)' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
           >
             GitHub
           </a>
@@ -16,13 +21,19 @@ export default function Footer() {
             href="https://linkedin.com/in/karthik-kagolanu" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="hover:text-gray-300"
+            className="text-sm transition-colors"
+            style={{ color: 'var(--text-secondary)' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
           >
             LinkedIn
           </a>
           <a 
             href="mailto:sai.kagolanu@yahoo.com" 
-            className="hover:text-gray-300"
+            className="text-sm transition-colors"
+            style={{ color: 'var(--text-secondary)' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
           >
             Email
           </a>
