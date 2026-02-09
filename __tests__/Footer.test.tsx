@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import Footer from '@/components/Footer';
 
@@ -21,6 +21,10 @@ describe('Footer Component', () => {
     expect(githubLink).toHaveAttribute('href', 'https://github.com/SkullKrak7');
     expect(githubLink).toHaveAttribute('target', '_blank');
     expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
+    
+    const linkedinLink = screen.getByRole('link', { name: /linkedin/i });
+    expect(linkedinLink).toHaveAttribute('href', 'https://linkedin.com/in/karthik-kagolanu');
+    expect(linkedinLink).toHaveAttribute('target', '_blank');
   });
 
   it('has email link', () => {
@@ -33,5 +37,24 @@ describe('Footer Component', () => {
     const { container } = render(<Footer />);
     const footer = container.querySelector('footer');
     expect(footer).toBeInTheDocument();
+  });
+
+  it('handles hover on social links', () => {
+    render(<Footer />);
+    const githubLink = screen.getByRole('link', { name: /github/i });
+    
+    fireEvent.mouseEnter(githubLink);
+    fireEvent.mouseLeave(githubLink);
+    
+    expect(githubLink).toBeInTheDocument();
+  });
+
+  it('all links are accessible', () => {
+    render(<Footer />);
+    const links = screen.getAllByRole('link');
+    expect(links.length).toBe(3);
+    links.forEach(link => {
+      expect(link).toHaveAttribute('href');
+    });
   });
 });

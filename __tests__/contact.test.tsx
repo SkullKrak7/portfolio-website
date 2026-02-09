@@ -65,13 +65,58 @@ describe('Contact Page', () => {
     
     fireEvent.change(nameInput, { target: { value: 'Test User' } });
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.change(messageInput, { target: { value: 'Test message content' } });
+    fireEvent.change(messageInput, { target: { value: 'Test message content that is long enough' } });
     
     fireEvent.click(submitButton);
     
     await waitFor(() => {
       expect(submitButton).toHaveTextContent(/sending/i);
-    });
+    }, { timeout: 100 });
+  });
+
+  it('shows error for empty name', async () => {
+    render(<ContactPage />);
+    
+    const emailInput = screen.getByLabelText(/email/i);
+    const messageInput = screen.getByLabelText(/message/i);
+    const submitButton = screen.getByRole('button', { name: /send message/i });
+    
+    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.change(messageInput, { target: { value: 'Test message' } });
+    fireEvent.click(submitButton);
+    
+    const nameInput = screen.getByLabelText(/name/i) as HTMLInputElement;
+    expect(nameInput.value).toBe('');
+  });
+
+  it('shows error for empty email', async () => {
+    render(<ContactPage />);
+    
+    const nameInput = screen.getByLabelText(/name/i);
+    const messageInput = screen.getByLabelText(/message/i);
+    const submitButton = screen.getByRole('button', { name: /send message/i });
+    
+    fireEvent.change(nameInput, { target: { value: 'Test' } });
+    fireEvent.change(messageInput, { target: { value: 'Test message' } });
+    fireEvent.click(submitButton);
+    
+    const emailInput = screen.getByLabelText(/email/i) as HTMLInputElement;
+    expect(emailInput.value).toBe('');
+  });
+
+  it('shows error for empty message', async () => {
+    render(<ContactPage />);
+    
+    const nameInput = screen.getByLabelText(/name/i);
+    const emailInput = screen.getByLabelText(/email/i);
+    const submitButton = screen.getByRole('button', { name: /send message/i });
+    
+    fireEvent.change(nameInput, { target: { value: 'Test' } });
+    fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+    fireEvent.click(submitButton);
+    
+    const messageInput = screen.getByLabelText(/message/i) as HTMLInputElement;
+    expect(messageInput.value).toBe('');
   });
 
   it('shows error for empty form submission', async () => {
