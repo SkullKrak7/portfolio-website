@@ -1,8 +1,8 @@
 {
   "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
+  "description": "Production-ready portfolio website for Sai Karthik Kagolanu",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,22 +17,20 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "audit": "npm audit --audit-level=moderate",
-    "bundlewatch": "bundlewatch",
+    "size": "size-limit",
     "ci": "npm run type-check && npm run lint && npm run test:coverage && npm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "bundlewatch": {
-    "files": [
-      {
-        "path": ".next/static/**/*.js",
-        "maxSize": "200kb"
-      }
-    ]
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "size-limit": [
+    {
+      "path": ".next/static/**/*.js",
+      "limit": "200 KB"
+    }
+  ],
+  "keywords": ["portfolio", "nextjs", "ml-engineer", "robotics"],
+  "author": "Sai Karthik Kagolanu",
+  "license": "MIT",
   "dependencies": {
     "@types/node": "^25.2.2",
     "@types/react": "^19.2.13",
@@ -49,6 +47,7 @@
     "@axe-core/react": "^4.11.1",
     "@chromatic-com/storybook": "^5.0.1",
     "@playwright/test": "^1.58.2",
+    "@size-limit/preset-app": "^12.0.0",
     "@storybook/addon-a11y": "^10.2.8",
     "@storybook/addon-docs": "^10.2.8",
     "@storybook/addon-onboarding": "^10.2.8",
@@ -62,7 +61,6 @@
     "@vitejs/plugin-react": "^5.1.3",
     "@vitest/browser-playwright": "^4.0.18",
     "@vitest/coverage-v8": "^4.0.18",
-    "bundlewatch": "^0.4.1",
     "chromatic": "^15.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-storybook": "^10.2.8",
