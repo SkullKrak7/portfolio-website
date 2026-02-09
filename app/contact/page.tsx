@@ -71,7 +71,6 @@ export default function ContactPage() {
                 type="text"
                 id="name"
                 name="name"
-                required
                 minLength={2}
                 className="w-full px-4 py-2 rounded-lg transition-colors"
                 style={{ background: 'var(--bg-soft)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }}
@@ -87,7 +86,6 @@ export default function ContactPage() {
                 type="email"
                 id="email"
                 name="email"
-                required
                 className="w-full px-4 py-2 rounded-lg transition-colors"
                 style={{ background: 'var(--bg-soft)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }}
                 placeholder="your.email@example.com"
@@ -101,7 +99,6 @@ export default function ContactPage() {
               <textarea
                 id="message"
                 name="message"
-                required
                 minLength={10}
                 rows={6}
                 className="w-full px-4 py-2 rounded-lg transition-colors resize-none"

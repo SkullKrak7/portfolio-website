@@ -32,14 +32,15 @@ describe('Contact Page', () => {
     expect(screen.getByText('sai.kagolanu@yahoo.com')).toBeInTheDocument();
   });
 
-  it('validates required fields', async () => {
+  it('validates fields on submission', async () => {
     render(<ContactPage />);
     const submitButton = screen.getByRole('button', { name: /send message/i });
     
     fireEvent.click(submitButton);
     
-    const nameInput = screen.getByLabelText(/name/i) as HTMLInputElement;
-    expect(nameInput.required).toBe(true);
+    await waitFor(() => {
+      expect(screen.getByText('Please fill in all fields')).toBeInTheDocument();
+    });
   });
 
   it('copies email to clipboard', async () => {
@@ -125,8 +126,39 @@ describe('Contact Page', () => {
     
     fireEvent.click(submitButton);
     
-    const nameInput = screen.getByLabelText(/name/i) as HTMLInputElement;
-    expect(nameInput.validity.valid).toBe(false);
+    await waitFor(() => {
+      expect(screen.getByText('Please fill in all fields')).toBeInTheDocument();
+    });
+  });
+
+  it('submits form with all fields filled', async () => {
+    render(<ContactPage />);
+    
+    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'John Doe' } });
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'john@example.com' } });
+    fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'Test message' } });
+    
+    const form = screen.getByRole('button', { name: /send message/i }).closest('form');
+    fireEvent.submit(form!);
+    
+    await waitFor(() => {
+      expect(screen.getByText(/sending/i)).toBeInTheDocument();
+    }, { timeout: 100 });
+  });
+
+  it('shows success message after form submission', async () => {
+    render(<ContactPage />);
+    
+    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
+    fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'Message' } });
+    
+    const form = screen.getByRole('button', { name: /send message/i }).closest('form');
+    fireEvent.submit(form!);
+    
+    await waitFor(() => {
+      expect(screen.getByText('Message sent successfully!')).toBeInTheDocument();
+    }, { timeout: 2000 });
   });
 
   it('has proper form structure', () => {
