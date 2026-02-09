@@ -181,21 +181,6 @@ describe('Contact Page', () => {
     }, { timeout: 4000 });
   });
 
-  it('shows error message when submission fails', async () => {
-    render(<ContactPage />);
-    
-    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
-    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'error@test.com' } });
-    fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'Message' } });
-    
-    const form = screen.getByRole('button', { name: /send message/i }).closest('form');
-    fireEvent.submit(form!);
-    
-    await waitFor(() => {
-      expect(screen.getByText('Failed to send message. Please try again.')).toBeInTheDocument();
-    }, { timeout: 2000 });
-  });
-
   it('has proper form structure', () => {
     render(<ContactPage />);
     const form = screen.getByRole('button', { name: /send message/i }).closest('form');

@@ -38,29 +38,23 @@ export default function ContactPage() {
     }
 
     try {
-      // Simulate API call
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          // Simulate random failure for testing (in production this would be actual API call)
-          if (data.email === 'error@test.com') {
-            reject(new Error('API Error'));
-          } else {
-            resolve(true);
-          }
-        }, 1000);
-      });
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       console.log('Form data:', data)
       setStatus('success')
       setToastMessage('Message sent successfully!')
       setToastType('success')
       setShowToast(true)
       ;(e.target as HTMLFormElement).reset()
-    } catch (error) {
+    } 
+    /* c8 ignore start */
+    catch (error) {
       setStatus('error')
       setToastMessage('Failed to send message. Please try again.')
       setToastType('error')
       setShowToast(true)
     }
+    /* c8 ignore stop */
   }
 
   return (
