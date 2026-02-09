@@ -1,23 +1,14 @@
 'use client'
 import { useState } from 'react'
 import ProjectCard from '@/components/ProjectCard';
-import { projects } from '@/lib/projects';
+import { projects, filterProjects } from '@/lib/projects';
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState('All')
   
   const filters = ['All', 'ML/AI', 'Computer Vision', 'NLP', 'Full-Stack', 'Hackathon', 'Python', 'C++', 'React']
   
-  const filtered = filter === 'All' 
-    ? projects 
-    : projects.filter(p => {
-        if (filter === 'ML/AI') return p.category === 'ML' || p.tags.some(t => t.includes('XGBoost') || t.includes('CNN') || t.includes('LSTM'))
-        if (filter === 'Computer Vision') return p.tags.some(t => t.includes('PyTorch') || t.includes('TensorFlow') || t.includes('CNN')) || p.title.includes('Vision')
-        if (filter === 'NLP') return p.tags.some(t => t.includes('LangChain') || t.includes('Gemini')) || p.title.includes('RAG')
-        if (filter === 'Full-Stack') return p.category === 'Full-Stack' || p.tags.some(t => t.includes('React') || t.includes('Flask') || t.includes('FastAPI'))
-        if (filter === 'Hackathon') return p.category === 'Hackathon' || p.tags.includes('🏆 Winner')
-        return p.tags.some(t => t.includes(filter))
-      })
+  const filtered = filterProjects(projects, filter);
 
   return (
     <main className="min-h-screen" style={{ background: 'var(--bg-page)' }}>

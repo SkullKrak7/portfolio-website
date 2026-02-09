@@ -19,6 +19,29 @@ export interface Project {
   techStack?: string[];
 }
 
+export function filterProjects(projects: Project[], filter: string): Project[] {
+  if (filter === 'All') return projects;
+  
+  return projects.filter(p => {
+    if (filter === 'ML/AI') {
+      return p.category === 'ML' || p.tags.some(t => t.includes('XGBoost') || t.includes('CNN') || t.includes('LSTM'));
+    }
+    if (filter === 'Computer Vision') {
+      return p.tags.some(t => t.includes('PyTorch') || t.includes('TensorFlow') || t.includes('CNN')) || p.title.includes('Vision');
+    }
+    if (filter === 'NLP') {
+      return p.tags.some(t => t.includes('LangChain') || t.includes('Gemini')) || p.title.includes('RAG');
+    }
+    if (filter === 'Full-Stack') {
+      return p.category === 'Full-Stack' || p.tags.some(t => t.includes('React') || t.includes('Flask') || t.includes('FastAPI'));
+    }
+    if (filter === 'Hackathon') {
+      return p.category === 'Hackathon' || p.tags.includes('🏆 Winner');
+    }
+    return p.tags.some(t => t.includes(filter));
+  });
+}
+
 export const projects: Project[] = [
   {
     slug: 'rag-demo',
