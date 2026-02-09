@@ -9,7 +9,7 @@ export default function Home() {
         </p>
         <p className="text-xl text-gray-500 max-w-2xl mb-8">
           MSc Robotics graduate specializing in Machine Learning, Computer Vision, and NLP systems. 
-          Two-time hackathon winner with production-grade ML systems and 96% test coverage.
+          Two-time hackathon winner with production-grade ML systems (6,500+ LOC, 96% test coverage).
         </p>
         <div className="flex gap-4">
           <a 
