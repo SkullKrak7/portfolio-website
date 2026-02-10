@@ -59,7 +59,7 @@ export default function AboutPage() {
                 <span>☁️</span> Infrastructure
               </h3>
               <div className="flex flex-wrap gap-2">
-                {['AWS', 'Prometheus', 'Grafana', 'CUDA', 'ChromaDB', 'Kubernetes'].map(skill => (
+                {['AWS', 'Prometheus', 'Grafana', 'CUDA', 'ChromaDB'].map(skill => (
                   <span key={skill} className="px-3 py-1.5 rounded text-sm" style={{ background: 'rgba(168, 85, 247, 0.12)', color: '#a855f7' }}>
                     {skill}
                   </span>

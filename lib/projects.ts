@@ -74,7 +74,7 @@ export const projects: Project[] = [
     category: 'Full-Stack',
     github: 'https://github.com/SkullKrak7/Computer-Vision-Classification-Suite',
     featured: true,
-    stats: { loc: '5,200', files: '86', coverage: '93%' },
+    stats: { loc: '5,200', files: '86', coverage: '93%', accuracy: '88.9%' },
     highlights: [
       'Multi-language: Python + C++ + JavaScript',
       '93% test coverage with 51 tests',
