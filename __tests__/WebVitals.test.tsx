@@ -33,31 +33,23 @@ describe('WebVitals', () => {
     process.env.NODE_ENV = originalEnv;
   });
 
-  it('sends metrics via sendBeacon in production', () => {
+  it('does not send metrics in production (handled by Vercel Speed Insights)', () => {
     process.env.NODE_ENV = 'production';
     const sendBeacon = vi.fn();
     Object.defineProperty(navigator, 'sendBeacon', { value: sendBeacon, writable: true });
-    
-    render(<WebVitals />);
-    
-    expect(sendBeacon).toHaveBeenCalledWith('/api/vitals', JSON.stringify({ name: 'CLS', value: 0.1 }));
-    
-    process.env.NODE_ENV = originalEnv;
-  });
-
-  it('falls back to fetch when sendBeacon unavailable', () => {
-    process.env.NODE_ENV = 'production';
-    Object.defineProperty(navigator, 'sendBeacon', { value: undefined, writable: true });
     global.fetch = vi.fn();
     
     render(<WebVitals />);
     
-    expect(global.fetch).toHaveBeenCalledWith('/api/vitals', {
-      body: JSON.stringify({ name: 'CLS', value: 0.1 }),
-      method: 'POST',
-      keepalive: true
-    });
+    // Should not call sendBeacon or fetch - metrics handled by Speed Insights
+    expect(sendBeacon).not.toHaveBeenCalled();
+    expect(global.fetch).not.toHaveBeenCalled();
     
     process.env.NODE_ENV = originalEnv;
+  });
+
+  it('renders without errors', () => {
+    const { container } = render(<WebVitals />);
+    expect(container).toBeTruthy();
   });
 });
