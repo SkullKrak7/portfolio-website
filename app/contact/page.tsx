@@ -69,15 +69,15 @@ export function ContactForm({
   }
 
   return (
-    <main className="flex-1 py-8 lg:py-12" style={{ background: 'var(--bg-page)' }}>
+    <main className="flex-1 py-6 lg:py-8" style={{ background: 'var(--bg-page)' }}>
       <div className="container mx-auto px-4 max-w-3xl">
-        <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Get in Touch</h1>
-        <p className="text-xl mb-8" style={{ color: 'var(--text-secondary)' }}>
+        <h1 className="text-3xl lg:text-4xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>Get in Touch</h1>
+        <p className="text-lg mb-6" style={{ color: 'var(--text-secondary)' }}>
           Interested in working together? Let's connect!
         </p>
 
-        <div className="rounded-lg p-8 mb-8" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-          <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Direct Contact</h2>
+        <div className="rounded-lg p-6 mb-6" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+          <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Direct Contact</h2>
           
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div className="p-6 rounded-lg" style={{ background: 'var(--bg-soft)', border: '1px solid var(--border-subtle)' }}>

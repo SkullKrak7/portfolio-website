@@ -11,14 +11,14 @@ export default function ProjectsPage() {
   const filtered = filterProjects(projects, filter);
 
   return (
-    <main className="min-h-screen overflow-hidden" style={{ background: 'var(--bg-page)' }}>
-      <div className="container mx-auto px-4 lg:px-8 py-8 lg:py-12 max-w-full">
-        <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>All Projects</h1>
-        <p className="text-xl mb-8" style={{ color: 'var(--text-secondary)' }}>
+    <main className="min-h-screen overflow-hidden py-6 lg:py-8" style={{ background: 'var(--bg-page)' }}>
+      <div className="container mx-auto px-4 lg:px-8 py-6 lg:py-8 max-w-full">
+        <h1 className="text-3xl lg:text-4xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>All Projects</h1>
+        <p className="text-lg mb-6" style={{ color: 'var(--text-secondary)' }}>
           {projects.length} projects showcasing ML, computer vision, NLP, and full-stack development
         </p>
 
-        <div className="flex gap-3 mb-8 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex gap-3 mb-6 overflow-x-auto pb-2 scrollbar-hide">
           {filters.map(tag => (
             <button
               key={tag}
