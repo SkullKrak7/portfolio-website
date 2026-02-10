@@ -116,7 +116,8 @@ export const projects: Project[] = [
     tags: ['XGBoost', 'Flask', 'CI/CD'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/Predictive-Maintenance-Pipeline',
-    stats: { loc: '282', files: '3', accuracy: '96.4%' },
+    image: '/projects/predictive-maintenance.png',
+    stats: { loc: '455', files: '4', accuracy: '96.4%' },
     highlights: [
       'XGBoost with class imbalance handling',
       'Feature importance analysis',
@@ -175,7 +176,8 @@ export const projects: Project[] = [
     tags: ['Python', 'Dash', 'Plotly', 'PostgreSQL'],
     category: 'Full-Stack',
     github: 'https://github.com/SkullKrak7/Digital-Twin',
-    stats: { loc: '333', files: '9' },
+    image: '/projects/digital-twin.png',
+    stats: { loc: '428', files: '11' },
     highlights: [
       'PostgreSQL with TimescaleDB extension',
       'Random Forest predictive maintenance',
