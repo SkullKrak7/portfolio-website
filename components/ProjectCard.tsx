@@ -3,11 +3,9 @@ interface ProjectCardProps {
   description: string;
   tags: string[];
   slug: string;
-  github?: string;
-  demo?: string;
 }
 
-export default function ProjectCard({ title, description, tags, slug, github, demo }: ProjectCardProps) {
+export default function ProjectCard({ title, description, tags, slug }: ProjectCardProps) {
   return (
     <div className="group p-5 rounded-xl shadow-md hover:shadow-xl transition-all" style={{ 
       background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
@@ -28,37 +26,13 @@ export default function ProjectCard({ title, description, tags, slug, github, de
         ))}
       </div>
 
-      <div className="flex gap-3 text-sm">
-        <a 
-          href={`/projects/${slug}`} 
-          className="font-medium hover:underline"
-          style={{ color: 'var(--accent)' }}
-        >
-          View Details →
-        </a>
-        {github && (
-          <a 
-            href={github} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="font-medium hover:underline"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            GitHub
-          </a>
-        )}
-        {demo && (
-          <a 
-            href={demo} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="font-medium hover:underline"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            Demo
-          </a>
-        )}
-      </div>
+      <a 
+        href={`/projects/${slug}`} 
+        className="font-medium hover:underline text-sm"
+        style={{ color: 'var(--accent)' }}
+      >
+        View Details →
+      </a>
     </div>
   );
 }

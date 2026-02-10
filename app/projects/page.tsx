@@ -12,7 +12,7 @@ export default function ProjectsPage() {
 
   return (
     <main className="min-h-screen" style={{ background: 'var(--bg-page)' }}>
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8 lg:py-12 max-w-7xl">
         <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>All Projects</h1>
         <p className="text-xl mb-8" style={{ color: 'var(--text-secondary)' }}>
           {projects.length} projects showcasing ML, computer vision, NLP, and full-stack development
@@ -41,7 +41,7 @@ export default function ProjectsPage() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
           {filtered.map((project) => (
             <ProjectCard 
               key={project.slug}
@@ -49,8 +49,6 @@ export default function ProjectsPage() {
               description={project.description}
               tags={project.tags}
               slug={project.slug}
-              github={project.github}
-              demo={project.demo}
             />
           ))}
         </div>

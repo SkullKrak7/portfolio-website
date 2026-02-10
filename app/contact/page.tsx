@@ -66,8 +66,8 @@ export function ContactForm({
   }
 
   return (
-    <main className="min-h-screen py-20" style={{ background: 'var(--bg-page)' }}>
-      <div className="container mx-auto px-4 max-w-2xl">
+    <main className="flex-1 py-8 lg:py-12" style={{ background: 'var(--bg-page)' }}>
+      <div className="container mx-auto px-4 max-w-3xl">
         <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Get in Touch</h1>
         <p className="text-xl mb-8" style={{ color: 'var(--text-secondary)' }}>
           Interested in working together? Let's connect!

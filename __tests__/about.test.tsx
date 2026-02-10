@@ -29,12 +29,6 @@ describe('About Page', () => {
     expect(screen.getByText(/BTech/i)).toBeInTheDocument();
   });
 
-  it('displays contact information', () => {
-    render(<AboutPage />);
-    expect(screen.getByText('Contact')).toBeInTheDocument();
-    expect(screen.getByText(/Sheffield, UK/i)).toBeInTheDocument();
-  });
-
   it('has proper semantic structure', () => {
     render(<AboutPage />);
     const main = screen.getByRole('main');

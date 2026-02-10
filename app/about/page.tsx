@@ -1,7 +1,7 @@
 export default function AboutPage() {
   return (
-    <main className="min-h-screen" style={{ background: 'var(--bg-page)' }}>
-      <div className="container mx-auto px-4 py-16 max-w-4xl">
+    <main className="flex-1" style={{ background: 'var(--bg-page)' }}>
+      <div className="container mx-auto px-4 py-8 lg:py-12 max-w-5xl">
         <h1 className="text-4xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>About Me</h1>
         
         <div className="rounded-lg shadow-md p-8 mb-8" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
@@ -85,36 +85,6 @@ export default function AboutPage() {
             <p style={{ color: 'var(--text-muted)' }}>Vellore Institute of Technology | Jul 2019 – May 2023</p>
             <p className="mt-2" style={{ color: 'var(--text-secondary)' }}>
               Dissertation: Surgical Collaborative Robot using Transformers and EfficientNet
-            </p>
-          </div>
-        </div>
-
-        <div className="rounded-lg shadow-md p-8" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-          <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Contact</h2>
-          <div className="space-y-3">
-            <p style={{ color: 'var(--text-secondary)' }}>
-              <span className="font-semibold">Location:</span> Sheffield, UK
-            </p>
-            <p style={{ color: 'var(--text-secondary)' }}>
-              <span className="font-semibold">Email:</span>{' '}
-              <a href="mailto:sai.kagolanu@yahoo.com" className="hover:underline" style={{ color: 'var(--accent)' }}>
-                sai.kagolanu@yahoo.com
-              </a>
-            </p>
-            <p style={{ color: 'var(--text-secondary)' }}>
-              <span className="font-semibold">Phone:</span> 07775 439150
-            </p>
-            <p style={{ color: 'var(--text-secondary)' }}>
-              <span className="font-semibold">GitHub:</span>{' '}
-              <a href="https://github.com/SkullKrak7" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: 'var(--accent)' }}>
-                github.com/SkullKrak7
-              </a>
-            </p>
-            <p style={{ color: 'var(--text-secondary)' }}>
-              <span className="font-semibold">LinkedIn:</span>{' '}
-              <a href="https://linkedin.com/in/karthik-kagolanu" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: 'var(--accent)' }}>
-                linkedin.com/in/karthik-kagolanu
-              </a>
             </p>
           </div>
         </div>

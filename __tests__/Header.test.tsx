@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 describe('Header Component', () => {
   it('renders site logo', () => {
     render(<Header />);
-    expect(screen.getByText('Sai Karthik')).toBeInTheDocument();
+    expect(screen.getByText('SK')).toBeInTheDocument();
   });
 
   it('displays all navigation links', () => {
@@ -55,7 +55,7 @@ describe('Header Component', () => {
 
   it('logo is a link', () => {
     render(<Header />);
-    const logo = screen.getByText('Sai Karthik');
+    const logo = screen.getByText('SK');
     expect(logo.closest('a')).toHaveAttribute('href', '/');
   });
 });

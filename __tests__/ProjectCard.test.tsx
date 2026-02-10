@@ -32,23 +32,6 @@ describe('ProjectCard', () => {
     expect(link).toHaveAttribute('href', '/projects/test-project');
   });
 
-  it('displays github link when provided', () => {
-    render(<ProjectCard {...mockProps} github="https://github.com/test" />);
-    expect(screen.getByText('GitHub')).toBeInTheDocument();
-  });
-
-  it('displays demo link when provided', () => {
-    render(<ProjectCard {...mockProps} demo="https://demo.com" />);
-    expect(screen.getByText('Demo')).toBeInTheDocument();
-  });
-
-  it('github link opens in new tab', () => {
-    render(<ProjectCard {...mockProps} github="https://github.com/test" />);
-    const githubLink = screen.getByText('GitHub').closest('a');
-    expect(githubLink).toHaveAttribute('target', '_blank');
-    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
-  });
-
   it('renders all provided tags', () => {
     render(<ProjectCard {...mockProps} tags={['React', 'TypeScript', 'Next.js', 'Tailwind']} />);
     expect(screen.getByText('React')).toBeInTheDocument();

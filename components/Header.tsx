@@ -7,8 +7,8 @@ export default function Header() {
       borderBottom: '1px solid var(--border-subtle)'
     }}>
       <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="/" className="text-sm font-semibold tracking-widest uppercase" style={{ color: 'var(--text-secondary)' }}>
-          Sai Karthik
+        <a href="/" className="text-sm font-semibold tracking-wide" style={{ color: 'var(--text-secondary)' }}>
+          SK
         </a>
         <div className="flex gap-6 items-center">
           <a href="/" className="text-sm transition-colors hover:text-[var(--accent)]" style={{ color: 'var(--text-secondary)' }}>

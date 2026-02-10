@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Production-ready portfolio website for Sai Karthik Kagolanu",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -28,7 +28,12 @@
       "limit": "200 KB"
     }
   ],
-  "keywords": ["portfolio", "nextjs", "ml-engineer", "robotics"],
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "ml-engineer",
+    "robotics"
+  ],
   "author": "Sai Karthik Kagolanu",
   "license": "MIT",
   "dependencies": {
@@ -61,6 +66,7 @@
     "@vitejs/plugin-react": "^5.1.3",
     "@vitest/browser-playwright": "^4.0.18",
     "@vitest/coverage-v8": "^4.0.18",
+    "babel-plugin-react-compiler": "^1.0.0",
     "chromatic": "^15.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-storybook": "^10.2.8",
