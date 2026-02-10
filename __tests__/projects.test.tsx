@@ -39,8 +39,8 @@ describe('Projects Page', () => {
 
   it('shows project cards', () => {
     render(<ProjectsPage />);
-    const viewDetailsLinks = screen.getAllByText(/view details/i);
-    expect(viewDetailsLinks.length).toBeGreaterThan(0);
+    const projectLinks = screen.getAllByRole('link');
+    expect(projectLinks.length).toBeGreaterThan(0);
   });
 
   it('has proper semantic structure', () => {
@@ -55,7 +55,7 @@ describe('Projects Page', () => {
     
     fireEvent.click(pythonFilter);
     
-    const cards = screen.getAllByText(/view details/i);
+    const cards = screen.getAllByRole('link');
     expect(cards.length).toBeGreaterThan(0);
   });
 
@@ -83,7 +83,7 @@ describe('Projects Page', () => {
     
     fireEvent.click(allFilter);
     
-    const cards = screen.getAllByText(/view details/i);
+    const cards = screen.getAllByRole('link');
     expect(cards.length).toBe(10);
   });
 

@@ -21,15 +21,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>{project.title}</h1>
         <p className="text-xl mb-6" style={{ color: 'var(--text-secondary)' }}>{project.description}</p>
 
-        {/* Project Image Placeholder */}
-        <div className="mb-8 rounded-xl h-64 flex items-center justify-center" style={{ background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)', border: '1px solid var(--border-subtle)' }}>
-          <div className="text-center">
-            <svg className="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--accent)' }}>
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <p style={{ color: 'var(--text-muted)' }}>Project Screenshot</p>
+        {/* Project Screenshot */}
+        {project.image ? (
+          <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
+            <img 
+              src={project.image} 
+              alt={`${project.title} screenshot`}
+              className="w-full h-auto"
+            />
           </div>
-        </div>
+        ) : (
+          <div className="mb-8 rounded-xl h-64 flex items-center justify-center" style={{ background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-center">
+              <svg className="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--accent)' }}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p style={{ color: 'var(--text-muted)' }}>Project Screenshot</p>
+            </div>
+          </div>
+        )}
 
         {/* Links */}
         <div className="flex gap-4 mb-8 flex-wrap">
