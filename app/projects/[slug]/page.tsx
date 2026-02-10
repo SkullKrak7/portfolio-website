@@ -130,23 +130,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </>
           )}
         </div>
-
-        <div className="flex gap-4">
-          {project.github && (
-            <a href={project.github} target="_blank" rel="noopener noreferrer" 
-               className="px-6 py-3 text-white rounded-lg transition-all hover:shadow-lg"
-               style={{ background: 'var(--bg-soft)' }}>
-              View on GitHub →
-            </a>
-          )}
-          {project.demo && (
-            <a href={project.demo} target="_blank" rel="noopener noreferrer"
-               className="px-6 py-3 text-white rounded-lg transition-all hover:shadow-lg"
-               style={{ background: 'var(--accent)' }}>
-              Live Demo →
-            </a>
-          )}
-        </div>
       </div>
     </main>
   )
