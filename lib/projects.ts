@@ -69,20 +69,21 @@ export const projects: Project[] = [
   {
     slug: 'cv-suite',
     title: 'Computer Vision Suite',
-    description: 'Multi-language ML system - 88.9% accuracy, 2,970 LOC',
-    longDescription: 'Production-ready computer vision classification system achieving 88.9% accuracy on 14,034-image dataset. Python ML training, C++ inference engine, and React frontend. Features 93% test coverage (51 tests), full monitoring stack, and comprehensive CI/CD.',
+    description: 'Multi-model ML system - 88.92% accuracy, 2,970 LOC',
+    longDescription: 'Production-ready computer vision classification system with 4 trained models (TensorFlow MobileNetV2: 88.92%, PyTorch CNN: 87.28%, SVM: 78%, KNN: 72%). Real-time inference dashboard with live prediction history. Features 93% test coverage (51 tests), full monitoring stack, and comprehensive CI/CD.',
     tags: ['Python', 'C++', 'React', 'PyTorch', 'TensorFlow'],
     category: 'Full-Stack',
     github: 'https://github.com/SkullKrak7/Computer-Vision-Classification-Suite',
+    image: '/projects/cv-suite.png',
     featured: true,
-    stats: { loc: '2,970', files: '46', coverage: '93%', accuracy: '88.9%' },
+    stats: { loc: '2,970', files: '46', coverage: '93%', accuracy: '88.92%' },
     highlights: [
-      'Multi-language: Python + C++ + JavaScript',
+      'TensorFlow MobileNetV2: 88.92% accuracy (best)',
+      'PyTorch CNN: 87.28% accuracy (production)',
+      'Real-time inference dashboard',
       '93% test coverage with 51 tests',
       'Prometheus + Grafana monitoring',
-      'Database migrations with Alembic',
-      'Security scanning (Bandit, Trufflehog)',
-      'ONNX model export for C++ inference',
+      'Multi-language: Python + C++ + JavaScript',
       'Full CI/CD pipeline'
     ],
     techStack: ['Python', 'C++', 'React', 'PyTorch', 'TensorFlow', 'ONNX', 'FastAPI', 'Docker']

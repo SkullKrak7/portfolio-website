@@ -9,7 +9,7 @@ export default function ProjectCard({ title, description, tags, slug }: ProjectC
   return (
     <a 
       href={`/projects/${slug}`}
-      className="group block rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden cursor-pointer" 
+      className="group block rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer" 
       style={{ 
         background: 'var(--bg-elevated)',
         border: '1px solid var(--border-subtle)'
