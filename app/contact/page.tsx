@@ -4,9 +4,12 @@ import Toast from '@/components/Toast'
 
 // API service that can be mocked in tests
 export const submitContactForm = async (data: { name: unknown; email: unknown; message: unknown }) => {
-  // In production, this would be a real API call
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  console.log('Form data:', data);
+  const response = await fetch('https://formspree.io/f/mzdadpgn', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+  if (!response.ok) throw new Error('Failed to send');
   return { success: true };
 };
 

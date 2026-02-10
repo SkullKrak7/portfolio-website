@@ -49,6 +49,7 @@ export default function ProjectsPage() {
               description={project.description}
               tags={project.tags}
               slug={project.slug}
+              image={project.image}
             />
           ))}
         </div>

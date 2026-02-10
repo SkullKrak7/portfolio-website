@@ -50,8 +50,9 @@ export const projects: Project[] = [
     longDescription: 'Enterprise RAG system with hybrid retrieval (BM25 + vector search), cross-encoder reranking, streaming LLM responses, conversation memory, and sensor data integration for FSW defect analysis.',
     tags: ['Python', 'LangChain', 'ChromaDB', 'Streamlit'],
     category: 'ML',
-    github: 'https://github.com/SkullKrak7/RAG_Demo',
+    github: 'https://github.com/SkullKrak7/RAG-Demo',
     demo: 'https://rag-demo-skullkrak7.streamlit.app',
+    image: '/projects/rag-demo.png',
     featured: true,
     stats: { loc: '1,370', files: '15', coverage: '96%' },
     highlights: [
@@ -134,6 +135,8 @@ export const projects: Project[] = [
     tags: ['🏆 Winner', 'Python', 'Clustering', 'Plotly'],
     category: 'Hackathon',
     github: 'https://github.com/SkullKrak7/SheffAware',
+    demo: 'https://sheffaware.streamlit.app',
+    image: '/projects/sheffaware.png',
     stats: { loc: '445', files: '11' },
     highlights: [
       '8 urban features (trees, cameras, crossings, libraries, etc.)',
