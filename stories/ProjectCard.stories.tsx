@@ -19,14 +19,12 @@ export const Default: Story = {
   },
 };
 
-export const WithLinks: Story = {
+export const WithManyTags: Story = {
   args: {
     title: 'CV Suite',
     description: 'Multi-language ML system',
     tags: ['Python', 'C++', 'JavaScript'],
     slug: 'cv-suite',
-    github: 'https://github.com/user/cv-suite',
-    demo: 'https://demo.com',
   },
 };
 
