@@ -53,7 +53,7 @@ export const projects: Project[] = [
     github: 'https://github.com/SkullKrak7/RAG_Demo',
     demo: 'https://rag-demo-skullkrak7.streamlit.app',
     featured: true,
-    stats: { loc: '787', files: '7', coverage: '96%' },
+    stats: { loc: '1,370', files: '15', coverage: '96%' },
     highlights: [
       'Hybrid retrieval with BM25 + vector search',
       'Cross-encoder reranking for relevance',
@@ -68,13 +68,13 @@ export const projects: Project[] = [
   {
     slug: 'cv-suite',
     title: 'Computer Vision Suite',
-    description: 'Multi-language ML system - 88.9% accuracy, 5,200 LOC',
+    description: 'Multi-language ML system - 88.9% accuracy, 2,970 LOC',
     longDescription: 'Production-ready computer vision classification system achieving 88.9% accuracy on 14,034-image dataset. Python ML training, C++ inference engine, and React frontend. Features 93% test coverage (51 tests), full monitoring stack, and comprehensive CI/CD.',
     tags: ['Python', 'C++', 'React', 'PyTorch', 'TensorFlow'],
     category: 'Full-Stack',
     github: 'https://github.com/SkullKrak7/Computer-Vision-Classification-Suite',
     featured: true,
-    stats: { loc: '5,200', files: '86', coverage: '93%', accuracy: '88.9%' },
+    stats: { loc: '2,970', files: '46', coverage: '93%', accuracy: '88.9%' },
     highlights: [
       'Multi-language: Python + C++ + JavaScript',
       '93% test coverage with 51 tests',
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     category: 'Hackathon',
     github: 'https://github.com/SkullKrak7/Retail-Odyssey',
     featured: true,
-    stats: { loc: '3,200', files: '28' },
+    stats: { loc: '1,472', files: '13' },
     highlights: [
       '5 specialized AI agents (Intent, Vision, Recommendation, Conversation, ImageGen)',
       'Google Search grounding with inline citations',
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     tags: ['XGBoost', 'Flask', 'CI/CD'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/Predictive-Maintenance-Pipeline',
-    stats: { loc: '1,200', files: '9', accuracy: '96.4%' },
+    stats: { loc: '282', files: '3', accuracy: '96.4%' },
     highlights: [
       'XGBoost with class imbalance handling',
       'Feature importance analysis',
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     tags: ['🏆 Winner', 'Python', 'Clustering', 'Plotly'],
     category: 'Hackathon',
     github: 'https://github.com/SkullKrak7/SheffAware',
-    stats: { loc: '2,100', files: '15' },
+    stats: { loc: '445', files: '11' },
     highlights: [
       '8 urban features (trees, cameras, crossings, libraries, etc.)',
       'K-means + hierarchical clustering',
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     tags: ['MATLAB', '33-layer CNN', 'Arduino'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/Robotic-Arm-Control',
-    stats: { loc: '1,800', files: '7', accuracy: '96.98%' },
+    stats: { loc: '592', files: '6', accuracy: '96.98%' },
     highlights: [
       '33-layer CNN for gesture recognition',
       'LSTM network for speech recognition',
@@ -172,7 +172,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Dash', 'Plotly', 'PostgreSQL'],
     category: 'Full-Stack',
     github: 'https://github.com/SkullKrak7/Digital-Twin',
-    stats: { loc: '1,500', files: '15' },
+    stats: { loc: '333', files: '9' },
     highlights: [
       'PostgreSQL with TimescaleDB extension',
       'Random Forest predictive maintenance',
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     tags: ['PyTorch', 'OpenCV', 'Real-time'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/Vision-Sorting-System',
-    stats: { loc: '1,100', files: '9' },
+    stats: { loc: '268', files: '5' },
     highlights: [
       'PyTorch CNN (3 conv layers)',
       'Real-time webcam inference',
@@ -210,7 +210,7 @@ export const projects: Project[] = [
     tags: ['scikit-learn', 'XGBoost', 'Comparison'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/biodegradability-classification',
-    stats: { loc: '400', files: '4' },
+    stats: { loc: '91', files: '1' },
     highlights: [
       '4 ML models compared',
       '41 molecular features',
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Tesseract', 'OCR'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/ocr-text-demo',
-    stats: { loc: '350', files: '4' },
+    stats: { loc: '19', files: '1' },
     highlights: [
       'Tesseract OCR integration',
       'UTF-8 encoding support',

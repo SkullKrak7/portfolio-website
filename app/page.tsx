@@ -52,7 +52,7 @@ export default function Home() {
             <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Projects</div>
           </div>
           <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#22c55e' }}>17K+</div>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#22c55e' }}>7.8K+</div>
             <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Lines of Code</div>
           </div>
           <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>

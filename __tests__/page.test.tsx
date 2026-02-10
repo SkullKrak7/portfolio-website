@@ -22,7 +22,7 @@ describe('Home Page', () => {
     render(<Home />);
     expect(screen.getByText('10')).toBeInTheDocument();
     expect(screen.getByText('Projects')).toBeInTheDocument();
-    expect(screen.getByText('17K+')).toBeInTheDocument();
+    expect(screen.getByText('7.8K+')).toBeInTheDocument();
     expect(screen.getByText('Lines of Code')).toBeInTheDocument();
   });
 
