@@ -9,59 +9,59 @@ export default function Home() {
       </a>
       <main id="main-content" className="flex flex-col justify-center flex-1" style={{ background: 'var(--bg-page)' }}>
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-4 lg:py-6 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-6 items-center">
-          <div>
-            <div className="inline-block px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>
-              🚀 Available for opportunities
-            </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 tracking-tight" style={{ color: 'var(--text-primary)' }}>
-              Sai Karthik Kagolanu
-            </h1>
-            <p className="text-xl md:text-2xl font-semibold mb-3 md:mb-4" style={{ color: 'var(--text-secondary)' }}>
-              ML Engineer & Robotics Graduate
-            </p>
-            <p className="text-base md:text-lg leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
-              MSc Robotics graduate specializing in Machine Learning, Computer Vision, and NLP systems. 
-              Two-time hackathon winner with production-grade ML systems (17K+ LOC, 95%+ portfolio accuracy).
-            </p>
-            <div className="flex gap-2 md:gap-3 flex-wrap">
-              <a 
-                href="/projects" 
-                className="px-4 py-2 md:px-6 md:py-3 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all text-sm md:text-base"
-                style={{ background: 'var(--accent)' }}
-              >
-                View Projects →
-              </a>
-              <a 
-                href="/resume.pdf" 
-                download
-                className="px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition-all text-sm md:text-base"
-                style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
-              >
-                Download CV
-              </a>
-            </div>
+      <section className="container mx-auto px-4 py-4 lg:py-6 max-w-6xl">
+        <div className="max-w-4xl mx-auto text-center lg:text-left">
+          <div className="inline-block px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>
+            🚀 Available for opportunities
           </div>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 tracking-tight" style={{ color: 'var(--text-primary)' }}>
+            Sai Karthik Kagolanu
+          </h1>
+          <p className="text-xl md:text-2xl font-semibold mb-3 md:mb-4" style={{ color: 'var(--text-secondary)' }}>
+            ML Engineer & Robotics Graduate
+          </p>
+          <p className="text-base md:text-lg leading-relaxed mb-6 max-w-3xl mx-auto lg:mx-0" style={{ color: 'var(--text-secondary)' }}>
+            MSc Robotics graduate specializing in Machine Learning, Computer Vision, and NLP systems. 
+            Two-time hackathon winner with production-grade ML systems (17K+ LOC, 95%+ portfolio accuracy).
+          </p>
+          <div className="flex gap-2 md:gap-3 flex-wrap justify-center lg:justify-start">
+            <a 
+              href="/projects" 
+              className="px-4 py-2 md:px-6 md:py-3 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all text-sm md:text-base"
+              style={{ background: 'var(--accent)' }}
+            >
+              View Projects →
+            </a>
+            <a 
+              href="/resume.pdf" 
+              download
+              className="px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition-all text-sm md:text-base"
+              style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+      </section>
 
-          {/* Stats Section - moved to hero on large screens */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-              <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--accent)' }}>10</div>
-              <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Projects</div>
-            </div>
-            <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-              <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#22c55e' }}>17K+</div>
-              <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Lines of Code</div>
-            </div>
-            <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-              <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#a855f7' }}>95%+</div>
-              <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Test Coverage</div>
-            </div>
-            <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-              <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#f97316' }}>2x</div>
-              <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Hackathon Winner</div>
-            </div>
+      {/* Stats Section */}
+      <section className="container mx-auto px-4 py-4 lg:py-6 max-w-6xl">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--accent)' }}>10</div>
+            <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Projects</div>
+          </div>
+          <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#22c55e' }}>17K+</div>
+            <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Lines of Code</div>
+          </div>
+          <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#a855f7' }}>95%+</div>
+            <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Test Coverage</div>
+          </div>
+          <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#f97316' }}>2x</div>
+            <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Hackathon Winner</div>
           </div>
         </div>
       </section>
