@@ -16,7 +16,7 @@ describe('About Page', () => {
 
   it('displays skills section', () => {
     render(<AboutPage />);
-    expect(screen.getByText('Skills')).toBeInTheDocument();
+    expect(screen.getByText('Technical Skills')).toBeInTheDocument();
     expect(screen.getByText('ML & AI')).toBeInTheDocument();
     expect(screen.getByText('Engineering')).toBeInTheDocument();
   });
