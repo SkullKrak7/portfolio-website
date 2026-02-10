@@ -1,8 +1,8 @@
 export default function AboutPage() {
   return (
-    <main className="min-h-screen py-6 lg:py-8" style={{ background: 'var(--bg-page)' }}>
+    <main className="py-4 lg:py-6" style={{ background: 'var(--bg-page)' }}>
       <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-        <h1 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>About Me</h1>
+        <h1 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>About Me</h1>
         
         {/* Who I Am - Compact */}
         <div className="rounded-lg shadow-md p-5 lg:p-6 mb-5" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
