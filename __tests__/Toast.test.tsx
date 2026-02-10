@@ -26,14 +26,14 @@ describe('Toast', () => {
     expect(screen.getByText('Info!')).toBeInTheDocument();
   });
 
-  it('calls onClose after timeout', () => {
+  it('calls onClose after timeout', async () => {
     const onClose = vi.fn();
-    render(<Toast message="Test" onClose={onClose} />);
+    const { rerender } = render(<Toast message="Test" onClose={onClose} />);
     
-    vi.advanceTimersByTime(3000);
+    await vi.advanceTimersByTimeAsync(3000);
     expect(onClose).not.toHaveBeenCalled();
     
-    vi.advanceTimersByTime(300);
+    await vi.advanceTimersByTimeAsync(300);
     expect(onClose).toHaveBeenCalled();
   });
 

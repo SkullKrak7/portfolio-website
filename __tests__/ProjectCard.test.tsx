@@ -39,4 +39,18 @@ describe('ProjectCard', () => {
     expect(screen.getByText('Next.js')).toBeInTheDocument();
     expect(screen.getByText('Tailwind')).toBeInTheDocument();
   });
+
+  it('renders with image when provided', () => {
+    const propsWithImage = { ...mockProps, image: '/test-image.png' };
+    render(<ProjectCard {...propsWithImage} />);
+    const img = screen.getByRole('img');
+    expect(img).toBeInTheDocument();
+    expect(img).toHaveAttribute('src', '/test-image.png');
+    expect(img).toHaveAttribute('alt', mockProps.title);
+  });
+
+  it('renders without image when not provided', () => {
+    render(<ProjectCard {...mockProps} />);
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+  });
 });
