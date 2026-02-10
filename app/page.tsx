@@ -9,7 +9,7 @@ export default function Home() {
       </a>
       <main id="main-content" className="flex flex-col justify-center flex-1" style={{ background: 'var(--bg-page)' }}>
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-4 lg:py-6 max-w-6xl">
+      <section className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
         <div className="max-w-4xl mx-auto text-center lg:text-left">
           <div className="inline-block px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>
             🚀 Available for opportunities
@@ -45,8 +45,8 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="container mx-auto px-4 py-4 lg:py-6 max-w-6xl">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      <section className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
           <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
             <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--accent)' }}>10</div>
             <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Projects</div>
@@ -67,9 +67,9 @@ export default function Home() {
       </section>
 
       {/* Featured Projects */}
-      <section className="container mx-auto px-4 py-4 lg:py-6 max-w-7xl">
+      <section className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>Featured Projects</h2>
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-6">
           {/* RAG_Demo */}
           <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all" style={{ 
             background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',

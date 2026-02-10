@@ -13,7 +13,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="min-h-screen py-8 lg:py-12" style={{ background: 'var(--bg-page)' }}>
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
         <Link href="/projects" className="hover:underline mb-8 inline-block transition-colors" style={{ color: 'var(--accent)' }}>
           ← Back to Projects
         </Link>
