@@ -53,7 +53,7 @@ export const projects: Project[] = [
     github: 'https://github.com/SkullKrak7/RAG_Demo',
     demo: 'https://rag-demo-skullkrak7.streamlit.app',
     featured: true,
-    stats: { loc: '787', files: '35', coverage: '96%' },
+    stats: { loc: '787', files: '7', coverage: '96%' },
     highlights: [
       'Hybrid retrieval with BM25 + vector search',
       'Cross-encoder reranking for relevance',
