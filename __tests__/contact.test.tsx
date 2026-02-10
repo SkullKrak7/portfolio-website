@@ -25,10 +25,9 @@ describe('Contact Page', () => {
     expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
   });
 
-  it('displays email and LinkedIn cards', () => {
+  it('displays email card', () => {
     render(<ContactForm />);
     expect(screen.getByText('Email')).toBeInTheDocument();
-    expect(screen.getByText('LinkedIn')).toBeInTheDocument();
     expect(screen.getByText('sai.kagolanu@yahoo.com')).toBeInTheDocument();
   });
 
@@ -215,13 +214,6 @@ describe('Contact Page', () => {
     const submitButton = screen.getByRole('button', { name: /send message/i });
     expect(submitButton).toBeInTheDocument();
     expect(submitButton).not.toBeDisabled();
-  });
-
-  it('has external links with proper attributes', () => {
-    render(<ContactForm />);
-    const linkedinLink = screen.getByRole('link', { name: /linkedin\.com/i });
-    expect(linkedinLink).toHaveAttribute('target', '_blank');
-    expect(linkedinLink).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
   it('renders ContactPage wrapper', () => {

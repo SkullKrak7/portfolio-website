@@ -69,7 +69,7 @@ export default function Home() {
       {/* Featured Projects */}
       <section className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>Featured Projects</h2>
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
           {/* RAG_Demo */}
           <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all" style={{ 
             background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
