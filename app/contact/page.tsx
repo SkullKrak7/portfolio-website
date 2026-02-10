@@ -75,27 +75,37 @@ export function ContactForm({
 
         <div className="rounded-lg p-8 mb-8" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
           <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Direct Contact</h2>
-          <div className="p-6 rounded-lg mb-6" style={{ background: 'var(--bg-soft)', border: '1px solid var(--border-subtle)' }}>
-            <h3 className="font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Email</h3>
-            <div className="flex items-center gap-2">
-              <a href="mailto:sai.kagolanu@yahoo.com" className="hover:underline" style={{ color: 'var(--accent)' }}>
-                sai.kagolanu@yahoo.com
+          
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="p-6 rounded-lg" style={{ background: 'var(--bg-soft)', border: '1px solid var(--border-subtle)' }}>
+              <h3 className="font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Email</h3>
+              <div className="flex items-center gap-2">
+                <a href="mailto:sai.kagolanu@yahoo.com" className="hover:underline" style={{ color: 'var(--accent)' }}>
+                  sai.kagolanu@yahoo.com
+                </a>
+                <button
+                  onClick={copyEmail}
+                  className="p-2 rounded transition-colors"
+                  title="Copy email"
+                >
+                  {copied ? (
+                    <svg className="w-5 h-5" style={{ color: 'var(--accent-success)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5" style={{ color: 'var(--text-secondary)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-lg" style={{ background: 'var(--bg-soft)', border: '1px solid var(--border-subtle)' }}>
+              <h3 className="font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Phone</h3>
+              <a href="tel:+447775439150" className="hover:underline" style={{ color: 'var(--accent)' }}>
+                +44 7775 439150
               </a>
-              <button
-                onClick={copyEmail}
-                className="p-2 rounded transition-colors"
-                title="Copy email"
-              >
-                {copied ? (
-                  <svg className="w-5 h-5" style={{ color: 'var(--accent-success)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5" style={{ color: 'var(--text-secondary)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                )}
-              </button>
             </div>
           </div>
 

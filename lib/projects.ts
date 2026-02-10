@@ -46,7 +46,7 @@ export const projects: Project[] = [
   {
     slug: 'rag-demo',
     title: 'RAG Demo',
-    description: 'Production-grade RAG with 96% test coverage',
+    description: 'Production-grade RAG with 96% test coverage (105 tests)',
     longDescription: 'Enterprise RAG system with hybrid retrieval (BM25 + vector search), cross-encoder reranking, streaming LLM responses, conversation memory, and sensor data integration for FSW defect analysis.',
     tags: ['Python', 'LangChain', 'ChromaDB', 'Streamlit'],
     category: 'ML',
@@ -68,8 +68,8 @@ export const projects: Project[] = [
   {
     slug: 'cv-suite',
     title: 'Computer Vision Suite',
-    description: 'Multi-language ML system - 5,200 LOC across 86 files',
-    longDescription: 'Production-ready computer vision classification system with Python ML training, C++ inference engine, and React frontend. Features 93% test coverage, full monitoring stack, and comprehensive CI/CD.',
+    description: 'Multi-language ML system - 88.9% accuracy, 5,200 LOC',
+    longDescription: 'Production-ready computer vision classification system achieving 88.9% accuracy on 14,034-image dataset. Python ML training, C++ inference engine, and React frontend. Features 93% test coverage (51 tests), full monitoring stack, and comprehensive CI/CD.',
     tags: ['Python', 'C++', 'React', 'PyTorch', 'TensorFlow'],
     category: 'Full-Stack',
     github: 'https://github.com/SkullKrak7/Computer-Vision-Classification-Suite',
