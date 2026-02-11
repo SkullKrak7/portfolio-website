@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
 import { WebVitals } from '@/components/WebVitals'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
   title: 'Sai Karthik Kagolanu - ML Engineer & Robotics Graduate',
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Analytics />
         <SpeedInsights />
         <WebVitals />
         <Header />

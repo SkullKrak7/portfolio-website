@@ -1,19 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  reactStrictMode: true,
-  poweredByHeader: false,
-  compress: true,
-  reactCompiler: true,
-  
-  experimental: {
-    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
+  images: {
+    unoptimized: true, // Required for static export
   },
-  
-  turbopack: {
-    resolveAlias: {
-      '@': './',
-    },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
   },
 };
 

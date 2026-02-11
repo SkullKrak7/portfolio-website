@@ -17,6 +17,9 @@ export default function Header() {
           <a href="/projects" className="text-sm transition-colors hover:text-[var(--accent)]" style={{ color: 'var(--text-secondary)' }}>
             Projects
           </a>
+          <a href="/blog" className="text-sm transition-colors hover:text-[var(--accent)]" style={{ color: 'var(--text-secondary)' }}>
+            Blog
+          </a>
           <a href="/about" className="text-sm transition-colors hover:text-[var(--accent)]" style={{ color: 'var(--text-secondary)' }}>
             About
           </a>

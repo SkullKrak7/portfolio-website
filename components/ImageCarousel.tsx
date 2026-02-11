@@ -9,6 +9,11 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, title }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages(prev => new Set(prev).add(index))
+  }
 
   const scrollToImage = (index: number) => {
     setCurrentIndex(index)
@@ -27,15 +32,31 @@ export default function ImageCarousel({ images, title }: ImageCarouselProps) {
     scrollToImage(newIndex)
   }
 
+  // Keyboard navigation
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      goToPrevious()
+    } else if (e.key === 'ArrowRight') {
+      goToNext()
+    }
+  }
+
   return (
-    <div className="mb-8 relative group">
+    <div className="mb-8 relative group" onKeyDown={handleKeyDown} tabIndex={0} role="region" aria-label={`${title} image carousel`}>
       <div className="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-4 scrollbar-hide">
         {images.map((img, idx) => (
-          <div key={idx} className="flex-shrink-0 w-full snap-center rounded-xl overflow-hidden shadow-lg">
+          <div key={idx} className="flex-shrink-0 w-full snap-center rounded-xl overflow-hidden shadow-lg relative">
+            {!loadedImages.has(idx) && (
+              <div className="absolute inset-0 flex items-center justify-center" style={{ background: 'var(--bg-elevated)' }}>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: 'var(--accent)' }}></div>
+              </div>
+            )}
             <img 
               src={img} 
               alt={`${title} screenshot ${idx + 1}`}
               className="w-full h-auto"
+              loading="lazy"
+              onLoad={() => handleImageLoad(idx)}
             />
           </div>
         ))}
