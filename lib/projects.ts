@@ -241,6 +241,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Tesseract', 'OCR'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/ocr-text-demo',
+    image: '/projects/ocr_text_demo.png',
     stats: { loc: '19', files: '1' },
     highlights: [
       'Tesseract OCR integration',
