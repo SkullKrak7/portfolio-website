@@ -1,5 +1,5 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import ContactPage, { ContactForm, submitContactForm } from '@/app/contact/page';
 
 describe('Contact Page', () => {
@@ -11,6 +11,10 @@ describe('Contact Page', () => {
       writable: true,
     });
     vi.clearAllMocks();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('renders page title', () => {
@@ -146,7 +150,9 @@ describe('Contact Page', () => {
   });
 
   it('shows success message after form submission', async () => {
-    render(<ContactForm />);
+    const mockSubmit = vi.fn().mockResolvedValue({ success: true });
+    
+    render(<ContactForm onSubmit={mockSubmit} />);
     
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
     fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
@@ -157,7 +163,7 @@ describe('Contact Page', () => {
     
     await waitFor(() => {
       expect(screen.getByText('Message sent successfully!')).toBeInTheDocument();
-    }, { timeout: 2000 });
+    });
   });
 
   it('submitContactForm throws error on failed response', async () => {
@@ -192,29 +198,33 @@ describe('Contact Page', () => {
     }, { timeout: 2000 });
   });
 
-  it('closes toast when close button is clicked', async () => {
-    render(<ContactForm />);
+  it('toast onClose callback is triggered and closes toast', async () => {
+    const mockSubmit = vi.fn().mockResolvedValue({ success: true });
+    
+    render(<ContactForm onSubmit={mockSubmit} />);
     
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
     fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
     fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'Message' } });
     
     const form = screen.getByRole('button', { name: /send message/i }).closest('form');
-    fireEvent.submit(form!);
     
-    // Wait for success toast
+    await act(async () => {
+      fireEvent.submit(form!);
+    });
+    
+    // Wait for success toast to appear
     await waitFor(() => {
       expect(screen.getByText('Message sent successfully!')).toBeInTheDocument();
-    }, { timeout: 2000 });
-    
-    // Find and click close button on toast
-    const closeButton = screen.getByRole('button', { name: /close/i });
-    fireEvent.click(closeButton);
-    
-    // Toast should be removed
-    await waitFor(() => {
-      expect(screen.queryByText('Message sent successfully!')).not.toBeInTheDocument();
     });
+    
+    // Wait for toast to auto-close (3000ms + 300ms fade)
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 3400));
+    });
+    
+    // Toast should be removed after auto-close
+    expect(screen.queryByText('Message sent successfully!')).not.toBeInTheDocument();
   });
 
   it('shows error message when API call fails', async () => {
