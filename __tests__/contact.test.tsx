@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import ContactPage, { ContactForm } from '@/app/contact/page';
+import ContactPage, { ContactForm, submitContactForm } from '@/app/contact/page';
 
 describe('Contact Page', () => {
   beforeEach(() => {
@@ -160,8 +160,25 @@ describe('Contact Page', () => {
     }, { timeout: 2000 });
   });
 
-  it('closes toast when onClose is called', async () => {
-    render(<ContactForm />);
+  it('submitContactForm throws error on failed response', async () => {
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        ok: false,
+        status: 500
+      } as Response)
+    );
+
+    await expect(submitContactForm({ 
+      name: 'Test', 
+      email: 'test@test.com', 
+      message: 'Message' 
+    })).rejects.toThrow('Failed to send');
+  });
+
+  it('shows error message when submission fails', async () => {
+    const mockFailedSubmit = vi.fn().mockRejectedValue(new Error('Failed to send'));
+    
+    render(<ContactForm onSubmit={mockFailedSubmit} />);
     
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
     fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
@@ -171,13 +188,33 @@ describe('Contact Page', () => {
     fireEvent.submit(form!);
     
     await waitFor(() => {
+      expect(screen.getByText('Failed to send message. Please try again.')).toBeInTheDocument();
+    }, { timeout: 2000 });
+  });
+
+  it('closes toast when close button is clicked', async () => {
+    render(<ContactForm />);
+    
+    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'Test' } });
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'test@test.com' } });
+    fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'Message' } });
+    
+    const form = screen.getByRole('button', { name: /send message/i }).closest('form');
+    fireEvent.submit(form!);
+    
+    // Wait for success toast
+    await waitFor(() => {
       expect(screen.getByText('Message sent successfully!')).toBeInTheDocument();
     }, { timeout: 2000 });
     
-    // Wait for toast auto-close
+    // Find and click close button on toast
+    const closeButton = screen.getByRole('button', { name: /close/i });
+    fireEvent.click(closeButton);
+    
+    // Toast should be removed
     await waitFor(() => {
       expect(screen.queryByText('Message sent successfully!')).not.toBeInTheDocument();
-    }, { timeout: 4000 });
+    });
   });
 
   it('shows error message when API call fails', async () => {

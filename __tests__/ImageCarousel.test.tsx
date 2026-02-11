@@ -133,6 +133,26 @@ describe('ImageCarousel', () => {
     expect(scrollToMock).toHaveBeenCalledWith({ left: 2000, behavior: 'smooth' })
   })
 
+  it('navigates to previous image from middle position', () => {
+    const scrollToMock = vi.fn()
+    document.querySelector = vi.fn(() => ({
+      clientWidth: 1000,
+      scrollTo: scrollToMock
+    } as any))
+
+    render(<ImageCarousel images={mockImages} title="Test Project" />)
+    
+    // First go to image 2 (index 1)
+    const dots = screen.getAllByLabelText(/View image \d/)
+    fireEvent.click(dots[1])
+    
+    // Then go previous (should go to index 0)
+    const prevButton = screen.getByLabelText('Previous image')
+    fireEvent.click(prevButton)
+    
+    expect(scrollToMock).toHaveBeenLastCalledWith({ left: 0, behavior: 'smooth' })
+  })
+
   it('handles missing container gracefully', () => {
     document.querySelector = vi.fn(() => null)
 
