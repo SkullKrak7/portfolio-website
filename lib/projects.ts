@@ -9,6 +9,7 @@ export interface Project {
   demo?: string;
   featured?: boolean;
   image?: string;
+  images?: string[];
   stats?: {
     loc?: string;
     files?: string;
@@ -96,6 +97,8 @@ export const projects: Project[] = [
     tags: ['🏆 Winner', 'Gemini', 'AutoGen', 'React'],
     category: 'Hackathon',
     github: 'https://github.com/SkullKrak7/Retail-Odyssey',
+    image: '/projects/retail-odyssey-1.png',
+    images: ['/projects/retail-odyssey-1.png', '/projects/retail-odyssey-2.png', '/projects/retail-odyssey-3.png'],
     featured: true,
     stats: { loc: '1,472', files: '13' },
     highlights: [
@@ -158,6 +161,8 @@ export const projects: Project[] = [
     tags: ['MATLAB', '33-layer CNN', 'Arduino'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/Robotic-Arm-Control',
+    image: '/projects/robotic-arm-control-1.png',
+    images: ['/projects/robotic-arm-control-1.png', '/projects/robotic-arm-control-2.png'],
     stats: { loc: '592', files: '6', accuracy: '96.98%' },
     highlights: [
       '33-layer CNN for gesture recognition',
@@ -197,6 +202,7 @@ export const projects: Project[] = [
     tags: ['PyTorch', 'OpenCV', 'Real-time'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/Vision-Sorting-System',
+    image: '/projects/vision-sorting-system.png',
     stats: { loc: '268', files: '5' },
     highlights: [
       'PyTorch CNN (3 conv layers)',
@@ -216,6 +222,7 @@ export const projects: Project[] = [
     tags: ['scikit-learn', 'XGBoost', 'Comparison'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/biodegradability-classification',
+    image: '/projects/biodegradability-classification.png',
     stats: { loc: '91', files: '1' },
     highlights: [
       '4 ML models compared',

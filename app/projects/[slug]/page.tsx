@@ -22,7 +22,19 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <p className="text-xl mb-6" style={{ color: 'var(--text-secondary)' }}>{project.description}</p>
 
         {/* Project Screenshot */}
-        {project.image ? (
+        {project.images && project.images.length > 0 ? (
+          <div className="mb-8 space-y-4">
+            {project.images.map((img, idx) => (
+              <div key={idx} className="rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={img} 
+                  alt={`${project.title} screenshot ${idx + 1}`}
+                  className="w-full h-auto"
+                />
+              </div>
+            ))}
+          </div>
+        ) : project.image ? (
           <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
             <img 
               src={project.image} 
