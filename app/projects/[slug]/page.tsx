@@ -1,6 +1,7 @@
 import { projects } from '@/lib/projects'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import ImageCarousel from '@/components/ImageCarousel'
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }))
@@ -23,17 +24,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         {/* Project Screenshot */}
         {project.images && project.images.length > 0 ? (
-          <div className="mb-8 space-y-4">
-            {project.images.map((img, idx) => (
-              <div key={idx} className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src={img} 
-                  alt={`${project.title} screenshot ${idx + 1}`}
-                  className="w-full h-auto"
-                />
-              </div>
-            ))}
-          </div>
+          <ImageCarousel images={project.images} title={project.title} />
         ) : project.image ? (
           <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
             <img 
