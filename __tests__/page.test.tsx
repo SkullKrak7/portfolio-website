@@ -10,7 +10,7 @@ describe('Home Page', () => {
 
   it('displays role title', () => {
     render(<Home />);
-    expect(screen.getByText(/ML Engineer & Robotics Graduate/i)).toBeInTheDocument();
+    expect(screen.getByText(/ML Engineer & Full-Stack Developer/i)).toBeInTheDocument();
   });
 
   it('shows availability badge', () => {
@@ -20,18 +20,18 @@ describe('Home Page', () => {
 
   it('displays stats section', () => {
     render(<Home />);
-    expect(screen.getByText('10')).toBeInTheDocument();
+    expect(screen.getByText('13')).toBeInTheDocument();
     expect(screen.getByText('Projects')).toBeInTheDocument();
-    expect(screen.getByText('7.8K+')).toBeInTheDocument();
-    expect(screen.getByText('Lines of Code')).toBeInTheDocument();
+    expect(screen.getByText('23%')).toBeInTheDocument();
+    expect(screen.getByText('Fewer Field Visits (Live Ops)')).toBeInTheDocument();
   });
 
   it('shows featured projects section', () => {
     render(<Home />);
     expect(screen.getByText('Featured Projects')).toBeInTheDocument();
-    expect(screen.getByText('RAG Demo')).toBeInTheDocument();
-    expect(screen.getByText('CV Suite')).toBeInTheDocument();
-    expect(screen.getByText('Retail Odyssey')).toBeInTheDocument();
+    expect(screen.getByText('Zaxia')).toBeInTheDocument();
+    expect(screen.getByText('Industrial Intelligence Platform')).toBeInTheDocument();
+    expect(screen.getByText('Apartment Society Finance App')).toBeInTheDocument();
   });
 
   it('has CTA buttons', () => {
@@ -49,8 +49,8 @@ describe('Home Page', () => {
 
   it('displays all stats correctly', () => {
     render(<Home />);
-    expect(screen.getByText('95%+')).toBeInTheDocument();
-    expect(screen.getByText('Test Coverage')).toBeInTheDocument();
+    expect(screen.getByText('74%')).toBeInTheDocument();
+    expect(screen.getByText('AI Agent Containment')).toBeInTheDocument();
     expect(screen.getByText('2x')).toBeInTheDocument();
     expect(screen.getByText('Hackathon Winner')).toBeInTheDocument();
   });
@@ -83,8 +83,8 @@ describe('Home Page', () => {
 
   it('displays project tags', () => {
     render(<Home />);
-    expect(screen.getByText('96% Coverage')).toBeInTheDocument();
-    expect(screen.getByText('Winner')).toBeInTheDocument();
-    expect(screen.getByText('Gemini')).toBeInTheDocument();
+    expect(screen.getByText('FastAPI')).toBeInTheDocument();
+    expect(screen.getByText('XGBoost')).toBeInTheDocument();
+    expect(screen.getByText('Next.js')).toBeInTheDocument();
   });
 });

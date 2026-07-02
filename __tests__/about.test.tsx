@@ -8,25 +8,18 @@ describe('About Page', () => {
     expect(screen.getByText('About Me')).toBeInTheDocument();
   });
 
-  it('displays who I am section', () => {
+  it('displays journey roadmap section', () => {
     render(<AboutPage />);
-    expect(screen.getByText('Who I Am')).toBeInTheDocument();
-    expect(screen.getByText(/MSc Robotics graduate/i)).toBeInTheDocument();
-  });
-
-  it('displays skills section', () => {
-    render(<AboutPage />);
-    expect(screen.getByText('Technical Skills')).toBeInTheDocument();
-    expect(screen.getByText('ML & AI')).toBeInTheDocument();
-    expect(screen.getByText('Engineering')).toBeInTheDocument();
-  });
-
-  it('displays education section', () => {
-    render(<AboutPage />);
-    expect(screen.getByText('Education')).toBeInTheDocument();
-    const roboticsElements = screen.getAllByText(/MSc Robotics/i);
-    expect(roboticsElements.length).toBeGreaterThan(0);
-    expect(screen.getByText(/BTech/i)).toBeInTheDocument();
+    expect(screen.getByText('My Journey')).toBeInTheDocument();
+    
+    // Check for some key timeline items
+    expect(screen.getByText('Operations Intern')).toBeInTheDocument();
+    expect(screen.getByText(/Fuse Energy/)).toBeInTheDocument();
+    
+    expect(screen.getByText('Double Hackathon Winner')).toBeInTheDocument();
+    
+    expect(screen.getByText('MSc Robotics (Merit)')).toBeInTheDocument();
+    expect(screen.getByText('BTech Mechanical Engineering')).toBeInTheDocument();
   });
 
   it('has proper semantic structure', () => {

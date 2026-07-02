@@ -20,34 +20,76 @@ export interface Project {
   techStack?: string[];
 }
 
-export function filterProjects(projects: Project[], filter: string): Project[] {
-  if (filter === 'All') return projects;
-  
-  return projects.filter(p => {
-    if (filter === 'ML/AI') {
-      return p.category === 'ML' || p.tags.some(t => t.includes('XGBoost') || t.includes('CNN') || t.includes('LSTM'));
-    }
-    if (filter === 'Computer Vision') {
-      return p.tags.some(t => t.includes('PyTorch') || t.includes('TensorFlow') || t.includes('CNN')) || p.title.includes('Vision');
-    }
-    if (filter === 'NLP') {
-      return p.tags.some(t => t.includes('LangChain') || t.includes('Gemini')) || p.title.includes('RAG');
-    }
-    if (filter === 'Full-Stack') {
-      return p.category === 'Full-Stack' || p.tags.some(t => t.includes('React') || t.includes('Flask') || t.includes('FastAPI'));
-    }
-    if (filter === 'Hackathon') {
-      return p.category === 'Hackathon' || p.tags.includes('🏆 Winner');
-    }
-    return p.tags.some(t => t.includes(filter));
-  });
-}
-
 export const projects: Project[] = [
   {
-    slug: 'rag-demo',
+    slug: 'zaxia',
+    title: 'Zaxia',
+    description: 'Multi-tenant, event-driven service management backend with AI-assisted operations',
+    longDescription:
+      'Production-grade backend for an AI-powered field-service platform covering bookings, dispatch, field operations, payments, marketing, reviews, and analytics. Built as a multi-tenant, domain-driven, event-driven CQRS FastAPI system with PostgreSQL/PostGIS, Redis, Kafka, WebSockets, Stripe payments, RBAC, and a tenant-scoped AI/RAG layer.',
+    tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Kafka', 'LangChain'],
+    category: 'Full-Stack',
+    github: 'https://github.com/SkullKrak7/zaxia-backend',
+    featured: true,
+    image: '/projects/zaxia-backend.png',
+    stats: {
+      coverage: '198 tests'
+    },
+    highlights: [
+      'Multi-tenant architecture with request-scoped tenant context and sharding support',
+      'CQRS design with command and query buses across bounded contexts',
+      'Event-driven flow with Kafka publishing and degraded-mode resilience',
+      'Stripe payments, RBAC, OAuth, magic links, and WebSocket updates',
+      'Tenant-scoped AI assistant over live business data',
+      'Security hardening including Redis-backed token revocation and stronger tenant isolation'
+    ],
+    techStack: ['Python', 'FastAPI', 'PostgreSQL', 'PostGIS', 'Redis', 'Kafka', 'Docker', 'LangChain']
+  },
+  {
+    slug: 'industrial-intelligence-platform',
+    title: 'Industrial Intelligence Platform',
+    description: 'End-to-end MLOps platform combining a Digital Twin and predictive maintenance pipeline',
+    longDescription: 'Merged portfolio project combining a Digital Twin simulation layer with a Predictive Maintenance ML pipeline into one production-grade repo. Covers telemetry simulation, feature engineering, model training, API serving, orchestration, and observability.',
+    tags: ['Python', 'FastAPI', 'XGBoost', 'MLflow', 'dbt', 'DuckDB', 'Dagster', 'Docker'],
+    category: 'ML',
+    github: 'https://github.com/SkullKrak7/industrial-intelligence-platform',
+    featured: true,
+    highlights: [
+      'Digital Twin simulation with asyncio telemetry streaming',
+      'Predictive maintenance pipeline using XGBoost on AI4I 2020 data',
+      'MLflow experiment tracking and model registry',
+      'dbt feature engineering over three SQL model layers',
+      'Five Dagster assets with daily orchestration',
+      'Prometheus, Loki, Promtail, and Grafana observability',
+      '10-service Docker Compose stack'
+    ],
+    techStack: ['Python', 'FastAPI', 'XGBoost', 'MLflow', 'dbt', 'DuckDB', 'Dagster', 'Docker']
+  },
+  {
+    slug: 'taa-society-treasurer',
+    title: 'Apartment Society Finance App',
+    description: 'Next.js and Supabase finance app, live with real users',
+    longDescription: 'Web app built to replace the Excel workflow used by the treasurer of a 55-flat apartment society. Designed so a non-technical user can manage dues, payments, expenses, reports, resident access, receipts, and backups without relying on a developer for routine tasks.',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Finance App', 'Live'],
+    category: 'Full-Stack',
+    github: 'https://github.com/SkullKrak7/taa-society-treasurer',
+    demo: 'https://taa-treasurer.vercel.app',
+    image: '/projects/taa-society-treasurer.jpg',
+    featured: true,
+    highlights: [
+      'Replaced a multi-year Excel workflow for a 55-flat society',
+      'Live and in daily use by a non-technical treasurer',
+      'Maintenance billing, levies, PDF receipts, and audit trail',
+      'Resident and admin role separation',
+      'Read-only AI query assistant for dues and expenses',
+      'Nightly backups and CI quality checks'
+    ],
+    techStack: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'PostgreSQL', 'Vercel']
+},
+  {
+    slug: 'fsw-rag-demo',
     title: 'RAG Demo',
-    description: 'Production-grade RAG with 96% test coverage (105 tests)',
+    description: 'Retrieval Augmented Generation with 96% test coverage (105 tests)',
     longDescription: 'Enterprise RAG system with hybrid retrieval (BM25 + vector search), cross-encoder reranking, streaming LLM responses, conversation memory, and sensor data integration for FSW defect analysis.',
     tags: ['Python', 'LangChain', 'ChromaDB', 'Streamlit'],
     category: 'ML',
@@ -68,8 +110,8 @@ export const projects: Project[] = [
     techStack: ['Python', 'LangChain', 'ChromaDB', 'HuggingFace', 'Streamlit', 'Docker']
   },
   {
-    slug: 'cv-suite',
-    title: 'Computer Vision Suite',
+    slug: 'cvc-suite',
+    title: 'Computer Vision Classification Suite',
     description: 'Multi-model ML system - 88.92% accuracy, 2,970 LOC',
     longDescription: 'Production-ready computer vision classification system with 4 trained models (TensorFlow MobileNetV2: 88.92%, PyTorch CNN: 87.28%, SVM: 78%, KNN: 72%). Real-time inference dashboard with live prediction history. Features 93% test coverage (51 tests), full monitoring stack, and comprehensive CI/CD.',
     tags: ['Python', 'C++', 'React', 'PyTorch', 'TensorFlow'],
@@ -112,26 +154,7 @@ export const projects: Project[] = [
     ],
     techStack: ['Python', 'FastAPI', 'AutoGen', 'Gemini', 'React', 'Prometheus', 'Docker']
   },
-  {
-    slug: 'predictive-maintenance',
-    title: 'Predictive Maintenance',
-    description: 'XGBoost ML pipeline with 96.4% accuracy',
-    longDescription: 'Production ML pipeline for equipment failure prediction with XGBoost, Flask API, comprehensive monitoring, and CI/CD automation.',
-    tags: ['XGBoost', 'Flask', 'CI/CD'],
-    category: 'ML',
-    github: 'https://github.com/SkullKrak7/Predictive-Maintenance-Pipeline',
-    image: '/projects/predictive-maintenance.png',
-    stats: { loc: '455', files: '4', accuracy: '96.4%' },
-    highlights: [
-      'XGBoost with class imbalance handling',
-      'Feature importance analysis',
-      'Flask API with Pydantic validation',
-      'Health check + metrics endpoints',
-      'CI/CD with GitHub Actions',
-      'Docker containerization'
-    ],
-    techStack: ['Python', 'XGBoost', 'Flask', 'Docker', 'GitHub Actions']
-  },
+
   {
     slug: 'sheffaware',
     title: 'SheffAware',
@@ -142,6 +165,7 @@ export const projects: Project[] = [
     github: 'https://github.com/SkullKrak7/SheffAware',
     demo: 'https://sheffaware.streamlit.app',
     image: '/projects/sheffaware.png',
+    featured: true,
     stats: { loc: '445', files: '11' },
     highlights: [
       '8 urban features (trees, cameras, crossings, libraries, etc.)',
@@ -154,25 +178,53 @@ export const projects: Project[] = [
     techStack: ['Python', 'scikit-learn', 'Plotly', 'Pandas', 'Streamlit']
   },
   {
-    slug: 'robotic-arm',
-    title: 'Robotic Arm Control',
-    description: 'Multi-modal control - 96.98% gesture accuracy',
-    longDescription: 'Multi-modal robotic arm control system with speech recognition (LSTM) and gesture recognition (33-layer CNN). Real-time Arduino integration for hardware control.',
-    tags: ['MATLAB', '33-layer CNN', 'Arduino'],
+    slug: 'robotic-arm-control',
+    title: 'Robotic Arm Control Using Gesture and Speech Recognition',
+    description: 'MSc Robotics dissertation with 96.98% gesture accuracy and 95.03% speech accuracy',
+    longDescription:
+      'MSc Robotics dissertation project focused on gesture and speech-controlled robotic hand operation. Uses custom CNN architectures and hardware integration to connect vision and speech models to an Arduino-driven robotic hand.',
+    tags: ['Robotics', 'MATLAB', 'CNN', 'Arduino', 'Computer Vision', 'Speech Recognition'],
     category: 'ML',
     github: 'https://github.com/SkullKrak7/Robotic-Arm-Control',
+    featured: true,
     image: '/projects/robotic-arm-control-1.png',
-    images: ['/projects/robotic-arm-control-1.png', '/projects/robotic-arm-control-2.png'],
-    stats: { loc: '592', files: '6', accuracy: '96.98%' },
-    highlights: [
-      '33-layer CNN for gesture recognition',
-      'LSTM network for speech recognition',
-      'Multi-modal interface (speech + gesture)',
-      'Real-time Arduino control',
-      'Transfer learning from GoogLeNet',
-      '6 commands: up, down, left, right, open, close'
+    images: [
+      '/projects/robotic-arm-control-1.png',
+      '/projects/robotic-arm-control-2.png'
     ],
-    techStack: ['MATLAB', 'Deep Learning Toolbox', 'Arduino', 'Computer Vision']
+    stats: {
+      accuracy: '96.98%'
+    },
+    highlights: [
+      '96.98% gesture accuracy',
+      '95.03% speech accuracy',
+      'Custom CNN architectures for both control modes',
+      'Hardware integration with an Arduino-driven robotic hand',
+      'MSc Robotics dissertation at the University of Sheffield',
+      'Strong bridge between ML and embodied systems'
+    ],
+    techStack: ['MATLAB', 'Deep Learning', 'Arduino', 'Computer Vision', 'Speech Recognition', 'Robotics']
+  },
+    {
+    slug: 'predictive-maintenance-pipeline',
+    title: 'Predictive Maintenance Pipeline',
+    description: 'XGBoost ML pipeline with 96.4% accuracy',
+    longDescription: 'Production ML pipeline for equipment failure prediction with XGBoost, Flask API, comprehensive monitoring, and CI/CD automation.',
+    tags: ['XGBoost', 'Flask', 'CI/CD'],
+    category: 'ML',
+    github: 'https://github.com/SkullKrak7/Predictive-Maintenance-Pipeline',
+    image: '/projects/predictive-maintenance.png',
+    featured: false,
+    stats: { loc: '455', files: '4', accuracy: '96.4%' },
+    highlights: [
+      'XGBoost with class imbalance handling',
+      'Feature importance analysis',
+      'Flask API with Pydantic validation',
+      'Health check + metrics endpoints',
+      'CI/CD with GitHub Actions',
+      'Docker containerization'
+    ],
+    techStack: ['Python', 'XGBoost', 'Flask', 'Docker', 'GitHub Actions']
   },
   {
     slug: 'digital-twin',
@@ -184,6 +236,7 @@ export const projects: Project[] = [
     github: 'https://github.com/SkullKrak7/Digital-Twin',
     image: '/projects/digital-twin.png',
     stats: { loc: '428', files: '11' },
+    featured: false,
     highlights: [
       'PostgreSQL with TimescaleDB extension',
       'Random Forest predictive maintenance',
@@ -195,7 +248,7 @@ export const projects: Project[] = [
     techStack: ['Python', 'FastAPI', 'PostgreSQL', 'Plotly', 'scikit-learn', 'Docker']
   },
   {
-    slug: 'vision-sorting',
+    slug: 'vision-sorting-system',
     title: 'Vision Sorting System',
     description: 'Real-time image classification',
     longDescription: 'Real-time computer vision sorting system with PyTorch CNN and KNN baseline. Webcam-based inference with FPS display.',
@@ -204,6 +257,7 @@ export const projects: Project[] = [
     github: 'https://github.com/SkullKrak7/Vision-Sorting-System',
     image: '/projects/vision-sorting-system.png',
     stats: { loc: '268', files: '5' },
+    featured: false,
     highlights: [
       'PyTorch CNN (3 conv layers)',
       'Real-time webcam inference',
@@ -215,8 +269,8 @@ export const projects: Project[] = [
     techStack: ['Python', 'PyTorch', 'OpenCV', 'scikit-learn']
   },
   {
-    slug: 'biodegradability',
-    title: 'Biodegradability Classification',
+    slug: 'biodegradability-classification',
+    title: 'QSAR Biodegradability Classification',
     description: '4 ML models compared',
     longDescription: 'Molecular biodegradability prediction comparing 4 ML algorithms (Random Forest, Logistic Regression, KNN, XGBoost) on 41 chemical features.',
     tags: ['scikit-learn', 'XGBoost', 'Comparison'],
@@ -224,6 +278,7 @@ export const projects: Project[] = [
     github: 'https://github.com/SkullKrak7/biodegradability-classification',
     image: '/projects/biodegradability-classification.png',
     stats: { loc: '91', files: '1' },
+    featured: false,
     highlights: [
       '4 ML models compared',
       '41 molecular features',
@@ -234,7 +289,7 @@ export const projects: Project[] = [
     techStack: ['Python', 'scikit-learn', 'XGBoost', 'Pandas', 'Seaborn']
   },
   {
-    slug: 'ocr-demo',
+    slug: 'ocr-text-demo',
     title: 'OCR Text Demo',
     description: 'Simple OCR with Tesseract',
     longDescription: 'Text extraction from images using Tesseract OCR with UTF-8 encoding support for special characters.',
@@ -243,6 +298,7 @@ export const projects: Project[] = [
     github: 'https://github.com/SkullKrak7/ocr-text-demo',
     image: '/projects/ocr_text_demo.png',
     stats: { loc: '19', files: '1' },
+    featured: false,
     highlights: [
       'Tesseract OCR integration',
       'UTF-8 encoding support',
@@ -252,3 +308,5 @@ export const projects: Project[] = [
     techStack: ['Python', 'Tesseract', 'Pillow']
   },
 ];
+
+export const featuredProjects = projects.filter(project => project.featured);

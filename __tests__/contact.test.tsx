@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import ContactPage, { ContactForm, submitContactForm } from '@/app/contact/page';
+import ContactPage from '@/app/contact/page';
+import { ContactForm, submitContactForm } from '@/components/ContactForm';
 
 describe('Contact Page', () => {
   beforeEach(() => {

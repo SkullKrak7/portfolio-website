@@ -17,7 +17,7 @@ describe('WebVitals', () => {
   const originalEnv = process.env.NODE_ENV;
 
   it('logs metrics in development', () => {
-    process.env.NODE_ENV = 'development';
+    (process.env as any).NODE_ENV = 'development';
     const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     
     render(<WebVitals />);
@@ -30,11 +30,11 @@ describe('WebVitals', () => {
     expect(consoleSpy).toHaveBeenCalledWith({ name: 'INP', value: 100 });
     
     consoleSpy.mockRestore();
-    process.env.NODE_ENV = originalEnv;
+    (process.env as any).NODE_ENV = originalEnv;
   });
 
   it('does not send metrics in production (handled by Vercel Speed Insights)', () => {
-    process.env.NODE_ENV = 'production';
+    (process.env as any).NODE_ENV = 'production';
     const sendBeacon = vi.fn();
     Object.defineProperty(navigator, 'sendBeacon', { value: sendBeacon, writable: true });
     global.fetch = vi.fn();
@@ -45,7 +45,7 @@ describe('WebVitals', () => {
     expect(sendBeacon).not.toHaveBeenCalled();
     expect(global.fetch).not.toHaveBeenCalled();
     
-    process.env.NODE_ENV = originalEnv;
+    (process.env as any).NODE_ENV = originalEnv;
   });
 
   it('renders without errors', () => {

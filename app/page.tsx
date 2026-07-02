@@ -18,11 +18,11 @@ export default function Home() {
             Sai Karthik Kagolanu
           </h1>
           <p className="text-xl md:text-2xl font-semibold mb-3 md:mb-4" style={{ color: 'var(--text-secondary)' }}>
-            ML Engineer & Robotics Graduate
+            ML Engineer & Full-Stack Developer
           </p>
           <p className="text-base md:text-lg leading-relaxed mb-6 max-w-3xl mx-auto lg:mx-0" style={{ color: 'var(--text-secondary)' }}>
-            MSc Robotics graduate specializing in Machine Learning, Computer Vision, and NLP systems. 
-            Two-time hackathon winner with production-grade ML systems (17K+ LOC, 95%+ portfolio accuracy).
+            MSc Robotics graduate with experience across AI agents, ML pipelines, and production backend systems. 
+            Two-time hackathon winner building end-to-end data products (13 projects, comprehensive CI/CD + test coverage).
           </p>
           <div className="flex gap-2 md:gap-3 flex-wrap justify-center lg:justify-start">
             <a 
@@ -48,16 +48,16 @@ export default function Home() {
       <section className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
           <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--accent)' }}>10</div>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: 'var(--accent)' }}>13</div>
             <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Projects</div>
           </div>
           <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#22c55e' }}>7.8K+</div>
-            <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Lines of Code</div>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#22c55e' }}>23%</div>
+            <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Fewer Field Visits (Live Ops)</div>
           </div>
           <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
-            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#a855f7' }}>95%+</div>
-            <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>Test Coverage</div>
+            <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#a855f7' }}>74%</div>
+            <div className="text-sm md:text-base" style={{ color: 'var(--text-muted)' }}>AI Agent Containment</div>
           </div>
           <div className="p-4 md:p-6 rounded-xl shadow text-center" style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}>
             <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: '#f97316' }}>2x</div>
@@ -70,65 +70,65 @@ export default function Home() {
       <section className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
-          {/* RAG_Demo */}
-          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all" style={{ 
+          {/* Zaxia */}
+          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all flex flex-col h-full" style={{ 
             background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
             border: '1px solid var(--border-subtle)'
           }}>
             <div className="flex items-center gap-2 mb-2">
-              <div className="text-xl">🤖</div>
-              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>RAG Demo</h3>
+              <div className="text-xl">🚀</div>
+              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Zaxia</h3>
             </div>
-            <p className="mb-3 text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>
-              Production-grade RAG with 96% test coverage, hybrid retrieval, and conversation memory
+            <p className="mb-3 text-xs md:text-sm flex-grow" style={{ color: 'var(--text-secondary)' }}>
+              Multi-tenant, event-driven service management backend with AI-assisted operations
             </p>
             <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Python</span>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'rgba(34, 197, 94, 0.12)', color: 'var(--accent-success)' }}>96% Coverage</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>FastAPI</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Kafka</span>
             </div>
-            <a href="/projects/rag-demo" className="text-xs md:text-sm font-medium hover:underline" style={{ color: 'var(--accent)' }}>
+            <a href="/projects/zaxia" className="text-xs md:text-sm font-medium hover:underline mt-auto" style={{ color: 'var(--accent)' }}>
               Learn more →
             </a>
           </div>
 
-          {/* CV Suite */}
-          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all" style={{ 
+          {/* Industrial Intelligence Platform */}
+          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all flex flex-col h-full" style={{ 
             background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
             border: '1px solid var(--border-subtle)'
           }}>
             <div className="flex items-center gap-2 mb-2">
-              <div className="text-xl">👁️</div>
-              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>CV Suite</h3>
+              <div className="text-xl">🏭</div>
+              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Industrial Intelligence Platform</h3>
             </div>
-            <p className="mb-3 text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>
-              Multi-language ML system with Python, C++, and JavaScript - 5,200 LOC
+            <p className="mb-3 text-xs md:text-sm flex-grow" style={{ color: 'var(--text-secondary)' }}>
+              End-to-end MLOps platform combining a Digital Twin and predictive maintenance pipeline
             </p>
             <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Python</span>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'rgba(168, 85, 247, 0.12)', color: '#a855f7' }}>C++</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Dagster</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>XGBoost</span>
             </div>
-            <a href="/projects/cv-suite" className="text-xs md:text-sm font-medium hover:underline" style={{ color: 'var(--accent)' }}>
+            <a href="/projects/industrial-intelligence-platform" className="text-xs md:text-sm font-medium hover:underline mt-auto" style={{ color: 'var(--accent)' }}>
               Learn more →
             </a>
           </div>
 
-          {/* Retail Odyssey */}
-          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all" style={{ 
+          {/* Apartment Society Finance App */}
+          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all flex flex-col h-full" style={{ 
             background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
             border: '1px solid var(--border-subtle)'
           }}>
             <div className="flex items-center gap-2 mb-2">
-              <div className="text-xl">🏆</div>
-              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Retail Odyssey</h3>
+              <div className="text-xl">🏢</div>
+              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Apartment Society Finance App</h3>
             </div>
-            <p className="mb-3 text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>
-              HackSheffield10 Winner - 5-agent AI system built in 24 hours
+            <p className="mb-3 text-xs md:text-sm flex-grow" style={{ color: 'var(--text-secondary)' }}>
+              Next.js and Supabase finance app, live with real users replacing an Excel workflow
             </p>
             <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'rgba(234, 179, 8, 0.12)', color: 'var(--accent-warning)' }}>Winner</span>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Gemini</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Next.js</span>
+              <span className="px-2 py-0.5 rounded" style={{ background: 'rgba(34, 197, 94, 0.12)', color: 'var(--accent-success)' }}>Live</span>
             </div>
-            <a href="/projects/retail-odyssey" className="text-xs md:text-sm font-medium hover:underline" style={{ color: 'var(--accent)' }}>
+            <a href="/projects/taa-society-treasurer" className="text-xs md:text-sm font-medium hover:underline mt-auto" style={{ color: 'var(--accent)' }}>
               Learn more →
             </a>
           </div>
