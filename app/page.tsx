@@ -1,3 +1,5 @@
+import { projects } from '@/lib/projects'
+
 export default function Home() {
   return (
     <>
@@ -70,68 +72,40 @@ export default function Home() {
       <section className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
-          {/* Zaxia */}
-          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all flex flex-col h-full" style={{ 
-            background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
-            border: '1px solid var(--border-subtle)'
-          }}>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="text-xl">🚀</div>
-              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Zaxia</h3>
+          {projects.filter(p => p.featured).slice(0, 3).map((project) => (
+            <div key={project.slug} className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all flex flex-col h-full" style={{ 
+              background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
+              border: '1px solid var(--border-subtle)'
+            }}>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="text-xl">
+                  {project.slug === 'zaxia' ? '🚀' : 
+                   project.slug === 'industrial-intelligence-platform' ? '🏭' : 
+                   project.slug === 'taa-society-treasurer' ? '🏢' : 
+                   project.slug === 'retail-odyssey' ? '🏆' : '✨'}
+                </div>
+                <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>{project.title}</h3>
+              </div>
+              <p className="mb-3 text-xs md:text-sm flex-grow" style={{ color: 'var(--text-secondary)' }}>
+                {project.description}
+              </p>
+              <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
+                {project.tags.slice(0, 2).map(tag => (
+                  <span key={tag} className="px-2 py-0.5 rounded" style={{ 
+                    background: tag === 'Live' ? 'rgba(34, 197, 94, 0.12)' : 
+                                tag === '🏆 Winner' ? 'rgba(234, 179, 8, 0.12)' : 'var(--accent-soft)', 
+                    color: tag === 'Live' ? 'var(--accent-success)' : 
+                           tag === '🏆 Winner' ? 'var(--accent-warning)' : 'var(--accent)' 
+                  }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a href={`/projects/${project.slug}`} className="text-xs md:text-sm font-medium hover:underline mt-auto" style={{ color: 'var(--accent)' }}>
+                Learn more →
+              </a>
             </div>
-            <p className="mb-3 text-xs md:text-sm flex-grow" style={{ color: 'var(--text-secondary)' }}>
-              Multi-tenant, event-driven service management backend with AI-assisted operations
-            </p>
-            <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>FastAPI</span>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Kafka</span>
-            </div>
-            <a href="/projects/zaxia" className="text-xs md:text-sm font-medium hover:underline mt-auto" style={{ color: 'var(--accent)' }}>
-              Learn more →
-            </a>
-          </div>
-
-          {/* Industrial Intelligence Platform */}
-          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all flex flex-col h-full" style={{ 
-            background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
-            border: '1px solid var(--border-subtle)'
-          }}>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="text-xl">🏭</div>
-              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Industrial Intelligence Platform</h3>
-            </div>
-            <p className="mb-3 text-xs md:text-sm flex-grow" style={{ color: 'var(--text-secondary)' }}>
-              End-to-end MLOps platform combining a Digital Twin and predictive maintenance pipeline
-            </p>
-            <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Dagster</span>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>XGBoost</span>
-            </div>
-            <a href="/projects/industrial-intelligence-platform" className="text-xs md:text-sm font-medium hover:underline mt-auto" style={{ color: 'var(--accent)' }}>
-              Learn more →
-            </a>
-          </div>
-
-          {/* Apartment Society Finance App */}
-          <div className="group p-4 md:p-5 rounded-xl shadow hover:shadow-xl transition-all flex flex-col h-full" style={{ 
-            background: 'radial-gradient(circle at top left, #111827 0%, var(--bg-elevated) 52%)',
-            border: '1px solid var(--border-subtle)'
-          }}>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="text-xl">🏢</div>
-              <h3 className="text-base md:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Apartment Society Finance App</h3>
-            </div>
-            <p className="mb-3 text-xs md:text-sm flex-grow" style={{ color: 'var(--text-secondary)' }}>
-              Next.js and Supabase finance app, live with real users replacing an Excel workflow
-            </p>
-            <div className="flex gap-1.5 mb-3 flex-wrap text-xs" style={{ color: 'var(--text-muted)' }}>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'var(--accent-soft)', color: 'var(--accent)' }}>Next.js</span>
-              <span className="px-2 py-0.5 rounded" style={{ background: 'rgba(34, 197, 94, 0.12)', color: 'var(--accent-success)' }}>Live</span>
-            </div>
-            <a href="/projects/taa-society-treasurer" className="text-xs md:text-sm font-medium hover:underline mt-auto" style={{ color: 'var(--accent)' }}>
-              Learn more →
-            </a>
-          </div>
+          ))}
         </div>
       </section>
     </main>

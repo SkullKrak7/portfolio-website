@@ -83,8 +83,7 @@ describe('Home Page', () => {
 
   it('displays project tags', () => {
     render(<Home />);
-    expect(screen.getByText('FastAPI')).toBeInTheDocument();
-    expect(screen.getByText('XGBoost')).toBeInTheDocument();
-    expect(screen.getByText('Next.js')).toBeInTheDocument();
+    expect(screen.getAllByText('FastAPI').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Next.js').length).toBeGreaterThan(0);
   });
 });

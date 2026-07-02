@@ -3,7 +3,7 @@
 # Portfolio Website — Comprehensive Project Manual
 
 ## 1. Project Overview & Architecture
-This is a modern, **statically-exported** personal portfolio for Sai Karthik Kagolanu. It acts as an interactive resume showcasing ML, AI, Backend, and Full-Stack development experience.
+This is a modern, **statically-exported** personal portfolio for Sai Karthik Kagolanu. It acts as an interactive resume showcasing backend systems, MLOps, AI agents, and applied ML.
 
 ### Core Stack
 - **Framework:** Next.js 16.2.10 (App Router, **`output: 'export'`**)
@@ -43,8 +43,8 @@ All portfolio project data lives strictly in the typed `projects` array within `
 
 ### Homepage (`app/page.tsx`)
 - **Hero Section:** Introduction, role ("ML Engineer & Full-Stack Developer"), and dual CTA buttons (View Projects, Download CV).
-- **Stats Grid:** Highlights total projects (13), production impact (23% fewer field visits, 74% agent containment), and hackathon wins (2x).
-- **Featured Projects:** Displays the top 3 projects (currently Zaxia, Industrial Intelligence Platform, Apartment Society Finance App) mapped directly from the UI markup.
+- **Stats Grid:** Highlights project breadth, production impact, and hackathon wins.
+- **Featured Projects:** Displays selected featured projects by mapping over `featuredProjects` from `lib/projects.ts` (driven dynamically by `featured: true`).
 
 ### About Page (`app/about/page.tsx`)
 - **My Journey (Timeline):** A vertical roadmap detailing professional and academic milestones (e.g., Fuse Energy, MSc Robotics, Double Hackathon Winner). Built with an absolute-positioned left border line and custom icons.
@@ -85,7 +85,7 @@ All portfolio project data lives strictly in the typed `projects` array within `
 
 ### Unit Tests (Vitest + React Testing Library)
 - Found in `__tests__/`.
-- 100%+ Coverage maintained (currently 106 passing tests).
+- Unit tests are maintained in `__tests__/` and should remain green before deployment.
 - Run with `npm run test` or `npm run test:coverage`.
 - **Mocking:** `fetch` is mocked globally in `contact.test.tsx`; `next/web-vitals` is mocked in `WebVitals.test.tsx`.
 
