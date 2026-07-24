@@ -10,7 +10,7 @@ describe('Home Page', () => {
 
   it('displays role title', () => {
     render(<Home />);
-    expect(screen.getByText(/ML Engineer & Full-Stack Developer/i)).toBeInTheDocument();
+    expect(screen.getByText(/AI & ML Engineer · Full-Stack Developer/i)).toBeInTheDocument();
   });
 
   it('shows availability badge', () => {
@@ -29,9 +29,9 @@ describe('Home Page', () => {
   it('shows featured projects section', () => {
     render(<Home />);
     expect(screen.getByText('Featured Projects')).toBeInTheDocument();
-    expect(screen.getByText('Zaxia')).toBeInTheDocument();
+    expect(screen.getByText('Axiar')).toBeInTheDocument();
     expect(screen.getByText('Industrial Intelligence Platform')).toBeInTheDocument();
-    expect(screen.getByText('Apartment Society Finance App')).toBeInTheDocument();
+    expect(screen.getByText('Trezia')).toBeInTheDocument();
   });
 
   it('has CTA buttons', () => {
@@ -85,5 +85,22 @@ describe('Home Page', () => {
     render(<Home />);
     expect(screen.getAllByText('FastAPI').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Next.js').length).toBeGreaterThan(0);
+  });
+
+  it('renders a real thumbnail image for each featured project instead of an emoji icon', () => {
+    const { container } = render(<Home />);
+    const images = container.querySelectorAll('main img');
+    expect(images.length).toBe(3);
+    images.forEach((img) => {
+      expect(img).toHaveAttribute('alt', '');
+      expect(img).toHaveAttribute('loading', 'lazy');
+      expect(img.getAttribute('src')).toMatch(/^\/projects\//);
+    });
+  });
+
+  it('availability badge has no emoji, just the pulse dot and text', () => {
+    render(<Home />);
+    const badge = screen.getByText(/Available for opportunities/i).closest('div');
+    expect(badge?.textContent?.trim()).toBe('Available for opportunities');
   });
 });

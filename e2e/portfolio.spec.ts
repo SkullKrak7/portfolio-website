@@ -4,7 +4,7 @@ test.describe('Portfolio Website E2E', () => {
   test('homepage loads and displays content', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByRole('heading', { name: /Sai Karthik Kagolanu/i })).toBeVisible();
-    await expect(page.getByText(/ML Engineer & Robotics Graduate/i)).toBeVisible();
+    await expect(page.getByText(/AI & ML Engineer/i).first()).toBeVisible();
   });
 
   test('navigation works', async ({ page }) => {
@@ -29,9 +29,9 @@ test.describe('Portfolio Website E2E', () => {
   test('dark mode toggle works', async ({ page }) => {
     await page.goto('/');
     const html = page.locator('html');
-    await expect(html).not.toHaveClass(/dark/);
-    await page.getByRole('button', { name: /theme/i }).click();
     await expect(html).toHaveClass(/dark/);
+    await page.getByRole('button', { name: /theme/i }).click();
+    await expect(html).not.toHaveClass(/dark/);
   });
 
   test('keyboard navigation works', async ({ page }) => {

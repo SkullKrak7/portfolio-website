@@ -35,4 +35,20 @@ describe('About Page', () => {
     expect(screen.getByText('C++')).toBeInTheDocument();
     expect(screen.getByText('React')).toBeInTheDocument();
   });
+
+  it('skill category headings are text-only, with no emoji', () => {
+    render(<AboutPage />);
+    expect(screen.getByText('ML & Data')).toBeInTheDocument();
+    expect(screen.getByText('Backend & Engineering')).toBeInTheDocument();
+    expect(screen.getByText('Infrastructure & DevOps')).toBeInTheDocument();
+    expect(screen.getByText('Frontend')).toBeInTheDocument();
+  });
+
+  it('timeline uses a plain dot marker instead of emoji icons', () => {
+    const { container } = render(<AboutPage />);
+    expect(container.textContent).not.toMatch(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u);
+    // 7 roadmap entries, each with an aria-hidden dot marker.
+    const markers = container.querySelectorAll('[aria-hidden="true"]');
+    expect(markers.length).toBe(7);
+  });
 });

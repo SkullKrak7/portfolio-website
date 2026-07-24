@@ -21,7 +21,10 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all transform hover:scale-110 z-50"
+      className="fixed bottom-8 right-8 p-4 text-white rounded-full shadow-lg transition-all transform hover:scale-110 z-50"
+      style={{ background: 'var(--accent)' }}
+      onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--accent-strong)' }}
+      onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--accent)' }}
       aria-label="Scroll to top"
     >
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

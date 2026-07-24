@@ -1,53 +1,48 @@
+import Reveal from '@/components/Reveal'
+
 export default function AboutPage() {
   const roadmap = [
     {
       date: 'Jan 2026 - Present',
       title: 'Full-Stack Developer & ML Engineer',
       subtitle: 'Independent Projects',
-      content: 'Developing production-grade applications including Zaxia (multi-tenant backend with FastAPI & Kafka) and an Apartment Society Finance App (live Next.js & Supabase application).',
-      icon: '🚀'
+      content: 'Building production systems including Axiar (a multi-tenant, event-driven field-service platform on FastAPI & Kafka) and Trezia (a live Next.js & Supabase accounting product a 55-flat society runs its books on).'
     },
     {
       date: 'Mar 2026 - Jun 2026',
       title: 'Operations Intern',
       subtitle: 'Fuse Energy | London, UK',
-      content: 'Improved billing AI agent containment from 41% to 74% live in production. Scaled the test suite to 103 cases covering context drift. Deployed Metabase dashboards over ClickHouse, cutting unnecessary field visits by 23%.',
-      icon: '⚡'
+      content: 'Improved billing AI agent containment from 41% to 74% live in production. Scaled the test suite to 103 cases covering context drift. Deployed Metabase dashboards over ClickHouse, cutting unnecessary field visits by 23%.'
     },
     {
       date: 'Nov 2025 - Mar 2026',
       title: 'Advanced ML Systems Development',
       subtitle: 'Independent Projects',
-      content: 'Built a Computer Vision Classification Suite in Python/C++ achieving 88.9% accuracy, alongside an enterprise-grade RAG system with hybrid retrieval and cross-encoder reranking.',
-      icon: '👁️'
+      content: 'Built a Computer Vision Classification Suite in Python/C++ achieving 88.9% accuracy, alongside an enterprise-grade RAG system with hybrid retrieval and cross-encoder reranking.'
     },
     {
       date: '2025',
       title: 'Double Hackathon Winner',
       subtitle: 'HackSheffield10 & Sheffield AI Hackathon',
-      content: 'Won Best Use of AI Agents on Arm for a 5-agent retail system built in 24 hours. Overall Winner for SheffAware, an urban livability clustering analysis tool using scikit-learn.',
-      icon: '🏆'
+      content: 'Won Best Use of AI Agents on Arm for a 5-agent retail system built in 24 hours. Overall Winner for SheffAware, an urban livability clustering analysis tool using scikit-learn.'
     },
     {
       date: 'Sep 2023 - Sep 2024',
       title: 'MSc Robotics (Merit)',
       subtitle: 'University of Sheffield',
-      content: 'Dissertation: Robotic Arm Control Using Gesture and Speech Recognition, achieving 96.98% gesture accuracy and 95.03% speech accuracy using custom CNN architectures.',
-      icon: '🎓'
+      content: 'Dissertation: Robotic Arm Control Using Gesture and Speech Recognition, achieving 96.98% gesture accuracy and 95.03% speech accuracy using custom CNN architectures.'
     },
     {
       date: 'Jun 2023 - Aug 2023',
       title: 'Machine Learning Intern',
       subtitle: 'Infyz Solutions | Hyderabad, India',
-      content: 'Benchmarked ML models on 5,000+ samples, reaching 92% accuracy in production. Rewrote data preprocessing pipelines in pandas and NumPy, cutting training time by 40%.',
-      icon: '🧠'
+      content: 'Benchmarked ML models on 5,000+ samples, reaching 92% accuracy in production. Rewrote data preprocessing pipelines in pandas and NumPy, cutting training time by 40%.'
     },
     {
       date: 'Jul 2019 - May 2023',
       title: 'BTech Mechanical Engineering',
       subtitle: 'Vellore Institute of Technology (VIT)',
-      content: 'Graduated with 8.84/10 (First Class). Dissertation: Surgical Collaborative Robot using Transformers and EfficientNet.',
-      icon: '⚙️'
+      content: 'Graduated with 8.84/10 (First Class). Dissertation: Surgical Collaborative Robotic Arm.'
     }
   ];
 
@@ -62,12 +57,13 @@ export default function AboutPage() {
           
           <div className="relative border-l-2 ml-4 md:ml-6 space-y-8 pb-4" style={{ borderColor: 'var(--border-strong)' }}>
             {roadmap.map((item, index) => (
-              <div key={index} className="relative pl-8 md:pl-10">
-                <div 
-                  className="absolute -left-[17px] top-1 w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-md"
+              <Reveal key={index} delay={index * 80} className="relative pl-8 md:pl-10">
+                <div
+                  className="absolute -left-[17px] top-1 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
                   style={{ background: 'var(--bg-elevated)', border: '2px solid var(--accent)' }}
+                  aria-hidden="true"
                 >
-                  {item.icon}
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--accent)' }} />
                 </div>
                 <div className="mb-1 text-sm font-semibold" style={{ color: 'var(--accent)' }}>
                   {item.date}
@@ -81,7 +77,7 @@ export default function AboutPage() {
                 <p className="text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                   {item.content}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -91,9 +87,9 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>Technical Skills</h2>
           
           <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2" style={{ color: 'var(--accent)' }}>
-                <span>🤖</span> ML & Data
+            <Reveal>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--accent)' }}>
+                ML & Data
               </h3>
               <div className="flex flex-wrap gap-2">
                 {['PyTorch', 'TensorFlow', 'scikit-learn', 'XGBoost', 'MLflow', 'LangChain', 'pandas', 'OpenCV'].map(skill => (
@@ -102,46 +98,46 @@ export default function AboutPage() {
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2" style={{ color: '#22c55e' }}>
-                <span>⚙️</span> Backend & Engineering
+            <Reveal delay={80}>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--accent-success)' }}>
+                Backend & Engineering
               </h3>
               <div className="flex flex-wrap gap-2">
                 {['Python', 'C++', 'SQL', 'FastAPI', 'PostgreSQL', 'Redis', 'Kafka', 'Supabase', 'BigQuery'].map(skill => (
-                  <span key={skill} className="px-3 py-1.5 rounded text-sm font-medium" style={{ background: 'rgba(34, 197, 94, 0.12)', color: '#22c55e' }}>
+                  <span key={skill} className="px-3 py-1.5 rounded text-sm font-medium" style={{ background: 'color-mix(in srgb, var(--accent-success) 14%, transparent)', color: 'var(--accent-success)' }}>
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2" style={{ color: '#a855f7' }}>
-                <span>☁️</span> Infrastructure & DevOps
+            <Reveal delay={160}>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--accent-violet)' }}>
+                Infrastructure & DevOps
               </h3>
               <div className="flex flex-wrap gap-2">
                 {['Docker', 'AWS', 'Cloudflare R2', 'dbt', 'Dagster', 'Prometheus', 'Grafana', 'GitHub Actions', 'Git'].map(skill => (
-                  <span key={skill} className="px-3 py-1.5 rounded text-sm font-medium" style={{ background: 'rgba(168, 85, 247, 0.12)', color: '#a855f7' }}>
+                  <span key={skill} className="px-3 py-1.5 rounded text-sm font-medium" style={{ background: 'color-mix(in srgb, var(--accent-violet) 14%, transparent)', color: 'var(--accent-violet)' }}>
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2" style={{ color: '#f97316' }}>
-                <span>🎨</span> Frontend
+            <Reveal delay={240}>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--accent-orange)' }}>
+                Frontend
               </h3>
               <div className="flex flex-wrap gap-2">
                 {['JavaScript/TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Streamlit'].map(skill => (
-                  <span key={skill} className="px-3 py-1.5 rounded text-sm font-medium" style={{ background: 'rgba(249, 115, 22, 0.12)', color: '#f97316' }}>
+                  <span key={skill} className="px-3 py-1.5 rounded text-sm font-medium" style={{ background: 'color-mix(in srgb, var(--accent-orange) 14%, transparent)', color: 'var(--accent-orange)' }}>
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

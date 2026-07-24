@@ -18,8 +18,11 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev',
+    // Test the STATIC EXPORT that actually ships (output: 'export'), not the dev
+    // server — dynamic [slug] routes compile on-demand in dev and blow the nav timeout.
+    command: 'npm run build && npx serve out -l 3000',
     url: 'http://localhost:3000',
+    timeout: 180_000,
     reuseExistingServer: !process.env.CI,
   },
 });

@@ -12,12 +12,13 @@ export default function ProjectsPage() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:gap-6 max-w-full">
           {projects.map((project) => (
-            <ProjectCard 
+            <ProjectCard
               key={project.slug}
               title={project.title}
               description={project.description}
               tags={project.tags}
               slug={project.slug}
+              image={project.image}
             />
           ))}
         </div>

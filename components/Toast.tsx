@@ -16,15 +16,15 @@ export default function Toast({ message, type = 'success', onClose }: {
     return () => clearTimeout(timer)
   }, [onClose])
 
-  const colors = {
-    success: 'bg-green-600',
-    error: 'bg-red-600',
-    info: 'bg-blue-600'
+  const colors: Record<'success' | 'error' | 'info', string> = {
+    success: 'var(--accent-success)',
+    error: 'var(--accent-error)',
+    info: 'var(--accent)'
   }
 
   return (
     <div className={`fixed top-20 right-8 z-50 transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
-      <div className={`${colors[type]} text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3`}>
+      <div className="text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3" style={{ background: colors[type] }}>
         {type === 'success' && (
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

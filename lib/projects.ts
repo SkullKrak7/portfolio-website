@@ -22,28 +22,28 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: 'zaxia',
-    title: 'Zaxia',
-    description: 'Multi-tenant, event-driven service management backend with AI-assisted operations',
+    slug: 'axiar',
+    title: 'Axiar',
+    description: 'Full-stack, multi-tenant, event-driven field-service platform with an AI "Virtual COO"',
     longDescription:
-      'Production-grade backend for an AI-powered field-service platform covering bookings, dispatch, field operations, payments, marketing, reviews, and analytics. Built as a multi-tenant, domain-driven, event-driven CQRS FastAPI system with PostgreSQL/PostGIS, Redis, Kafka, WebSockets, Stripe payments, RBAC, and a tenant-scoped AI/RAG layer.',
-    tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Kafka', 'LangChain'],
+      'Full-stack monorepo for an AI-powered field-service platform covering bookings, dispatch, field operations, payments, marketing, reviews, and analytics. Built as a multi-tenant, domain-driven, event-driven CQRS system — a FastAPI backend spanning 17 domain contexts and 117 API routes (PostgreSQL/PostGIS, Redis, Kafka, WebSockets, RBAC) with a React frontend wired to all 11 feature areas, plus a tool-calling "Virtual COO" AI assistant over live tenant data. Deployed as a keyless live demo on Vercel, Render, Neon, and Upstash.',
+    tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Kafka', 'React'],
     category: 'Full-Stack',
-    github: 'https://github.com/SkullKrak7/zaxia-backend',
+    demo: 'https://axiar-alpha.vercel.app',
     featured: true,
-    image: '/projects/zaxia-backend.png',
+    image: '/projects/axiar.png',
     stats: {
-      coverage: '198 tests'
+      coverage: '358 tests'
     },
     highlights: [
       'Multi-tenant architecture with request-scoped tenant context and sharding support',
-      'CQRS design with command and query buses across bounded contexts',
-      'Event-driven flow with Kafka publishing and degraded-mode resilience',
-      'Stripe payments, RBAC, OAuth, magic links, and WebSocket updates',
-      'Tenant-scoped AI assistant over live business data',
-      'Security hardening including Redis-backed token revocation and stronger tenant isolation'
+      'CQRS design across 17 bounded contexts with 117 API routes',
+      'Event-driven flow with a transactional outbox, Kafka, and degraded-mode resilience',
+      'RBAC, OAuth, magic links, and WebSocket live dispatch tracking',
+      'Tenant-scoped "Virtual COO" AI assistant with tool-calling over live tenant data',
+      'Live keyless demo: Vercel + Render + Neon Postgres + Upstash Redis'
     ],
-    techStack: ['Python', 'FastAPI', 'PostgreSQL', 'PostGIS', 'Redis', 'Kafka', 'Docker', 'LangChain']
+    techStack: ['Python', 'FastAPI', 'PostgreSQL', 'PostGIS', 'Redis', 'Kafka', 'Docker', 'LangChain', 'React', 'Vite', 'shadcn/ui', 'Zustand', 'Ollama', 'ChromaDB', 'Kubernetes']
   },
   {
     slug: 'industrial-intelligence-platform',
@@ -54,6 +54,8 @@ export const projects: Project[] = [
     category: 'ML',
     github: 'https://github.com/SkullKrak7/industrial-intelligence-platform',
     featured: true,
+    image: '/projects/industrial-intelligence-platform.png',
+    stats: { accuracy: '0.737 macro-F1', coverage: '9 tests' },
     highlights: [
       'Digital Twin simulation with asyncio telemetry streaming',
       'Predictive maintenance pipeline using XGBoost on AI4I 2020 data',
@@ -66,34 +68,34 @@ export const projects: Project[] = [
     techStack: ['Python', 'FastAPI', 'XGBoost', 'MLflow', 'dbt', 'DuckDB', 'Dagster', 'Docker']
   },
   {
-    slug: 'taa-society-treasurer',
-    title: 'Apartment Society Finance App',
-    description: 'Next.js and Supabase finance app, live with real users',
-    longDescription: 'Web app built to replace the Excel workflow used by the treasurer of a 55-flat apartment society. Designed so a non-technical user can manage dues, payments, expenses, reports, resident access, receipts, and backups without relying on a developer for routine tasks.',
+    slug: 'trezia',
+    title: 'Trezia',
+    description: 'Multi-society accounting platform, live with real users — UPI/Razorpay payments and an AI books assistant',
+    longDescription: 'Multi-society accounting and operations platform for apartment societies, born from replacing a 55-flat society\'s four-year Excel workflow and now live in daily use. Covers billing, dues tracking, PDF receipts, balance sheets, and an immutable audit trail, with a resident portal, one-tap UPI and WhatsApp payment links, per-society Razorpay online payments, OCR-assisted payment-proof approval, push notifications, staged CSV society import, bank-statement reconciliation, and a read-only AI assistant (Groq) for querying the books in plain English.',
     tags: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Finance App', 'Live'],
     category: 'Full-Stack',
-    github: 'https://github.com/SkullKrak7/taa-society-treasurer',
-    demo: 'https://taa-treasurer.vercel.app',
-    image: '/projects/taa-society-treasurer.jpg',
+    demo: 'https://trezia.dev',
+    image: '/projects/trezia.png',
     featured: true,
+    stats: { coverage: '424 tests' },
     highlights: [
-      'Replaced a multi-year Excel workflow for a 55-flat society',
-      'Live and in daily use by a non-technical treasurer',
-      'Maintenance billing, levies, PDF receipts, and audit trail',
-      'Resident and admin role separation',
-      'Read-only AI query assistant for dues and expenses',
-      'Nightly backups and CI quality checks'
+      'Multi-society platform: one deployment, per-society data, config, and payment accounts',
+      'Live and in daily use, with billing, dues tracking, and an immutable audit trail',
+      'One-tap UPI and WhatsApp payment links, per-society Razorpay, and OCR-assisted payment-proof approval',
+      'Resident portal with PDF receipts, balance sheets, push notifications, and CSV/JSON export',
+      'Read-only AI assistant (Groq) to query the books in plain English',
+      'MFA (TOTP), row-level security with a live RLS test gate, and staged society import'
     ],
-    techStack: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'PostgreSQL', 'Vercel']
+    techStack: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Cloudflare R2', 'Vercel']
 },
   {
-    slug: 'fsw-rag-demo',
+    slug: 'rag-demo',
     title: 'RAG Demo',
     description: 'Retrieval Augmented Generation with 96% test coverage (105 tests)',
     longDescription: 'Enterprise RAG system with hybrid retrieval (BM25 + vector search), cross-encoder reranking, streaming LLM responses, conversation memory, and sensor data integration for FSW defect analysis.',
     tags: ['Python', 'LangChain', 'ChromaDB', 'Streamlit'],
     category: 'ML',
-    github: 'https://github.com/SkullKrak7/RAG-Demo',
+    github: 'https://github.com/SkullKrak7/RAG_Demo',
     demo: 'https://rag-demo-skullkrak7.streamlit.app',
     image: '/projects/rag-demo.png',
     featured: true,
@@ -123,6 +125,8 @@ export const projects: Project[] = [
     highlights: [
       'TensorFlow MobileNetV2: 88.92% accuracy (best)',
       'PyTorch CNN: 87.28% accuracy (production)',
+      '14,034 images across 6 classes',
+      'C++ ONNX inference 2-3x faster than Python',
       'Real-time inference dashboard',
       '93% test coverage with 51 tests',
       'Prometheus + Grafana monitoring',
@@ -136,7 +140,7 @@ export const projects: Project[] = [
     title: 'Retail Odyssey',
     description: 'HackSheffield10 Winner - Best AI Agents on ARM',
     longDescription: '5-agent AI system for Frasers Group retail assistant with Google Search grounding, competitor filtering, and comprehensive monitoring. Built in 24 hours.',
-    tags: ['🏆 Winner', 'Gemini', 'AutoGen', 'React'],
+    tags: ['Winner', 'Gemini', 'AutoGen', 'React'],
     category: 'Hackathon',
     github: 'https://github.com/SkullKrak7/Retail-Odyssey',
     image: '/projects/retail-odyssey-1.png',
@@ -160,7 +164,7 @@ export const projects: Project[] = [
     title: 'SheffAware',
     description: 'Sheffield AI Hackathon Winner - Overall Prize',
     longDescription: 'Urban livability analysis for Sheffield using 8 city features with K-means and hierarchical clustering. Interactive Plotly visualizations with ward-level insights.',
-    tags: ['🏆 Winner', 'Python', 'Clustering', 'Plotly'],
+    tags: ['Winner', 'Python', 'Clustering', 'Plotly'],
     category: 'Hackathon',
     github: 'https://github.com/SkullKrak7/SheffAware',
     demo: 'https://sheffaware.streamlit.app',

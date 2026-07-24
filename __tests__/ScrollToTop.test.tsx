@@ -31,4 +31,17 @@ describe('ScrollToTop', () => {
     fireEvent.click(screen.getByLabelText('Scroll to top'));
     expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
   });
+
+  it('changes background on hover and reverts on mouse leave', () => {
+    render(<ScrollToTop />);
+    act(() => {
+      Object.defineProperty(window, 'scrollY', { writable: true, value: 400 });
+      fireEvent.scroll(window);
+    });
+    const button = screen.getByLabelText('Scroll to top');
+    fireEvent.mouseEnter(button);
+    expect(button.style.background).toBe('var(--accent-strong)');
+    fireEvent.mouseLeave(button);
+    expect(button.style.background).toBe('var(--accent)');
+  });
 });

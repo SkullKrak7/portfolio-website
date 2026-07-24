@@ -39,6 +39,7 @@ describe('Toast', () => {
 
   it('defaults to success type', () => {
     const { container } = render(<Toast message="Default" onClose={vi.fn()} />);
-    expect(container.querySelector('.bg-green-600')).toBeInTheDocument();
+    expect(screen.getByText('Default')).toBeInTheDocument();
+    expect(container.querySelector('path[d="M5 13l4 4L19 7"]')).toBeInTheDocument();
   });
 });

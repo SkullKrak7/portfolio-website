@@ -29,6 +29,13 @@ Thumbs.db
 
 # Testing
 coverage/
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# Build artifacts
+*.tsbuildinfo
 
 # Misc
 *.log
